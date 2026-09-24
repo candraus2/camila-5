@@ -340,6 +340,28 @@ body.invitation-open .music-button{
     font-size:38px;
     color:#235f62;
 }
+
+.venue-logo-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px;
+}
+
+.venue-logo{
+    width:min(330px,88%);
+    max-height:220px;
+    object-fit:contain;
+    filter:drop-shadow(0 10px 24px rgba(31,77,86,.14));
+}
+
+.venue-info{
+    text-align:left;
+}
+
+.venue-info .btn{
+    margin-top:6px;
+}
 .btn{
     display:inline-flex;
     align-items:center;
@@ -495,6 +517,8 @@ input:focus,select:focus,textarea:focus{
     .map-box{grid-template-columns:1fr}
     .cards{grid-template-columns:1fr}
     .timeline{grid-template-columns:1fr 1fr}
+    .venue-info{text-align:center}
+    .venue-logo{width:min(290px,78vw)}
 }
 @media(max-width:560px){
     section{padding:62px 18px}
@@ -605,7 +629,7 @@ input:focus,select:focus,textarea:focus{
             <div class="card">
                 <div class="card-icon">⏰</div>
                 <b>Hora</b>
-                <small>5:00 PM</small>
+                <small>5:00 PM - 7:00 PM</small>
             </div>
 
             <div class="card">
@@ -616,16 +640,24 @@ input:focus,select:focus,textarea:focus{
         </div>
 
         <div class="map-box">
-            <div>
+
+            <div class="venue-logo-wrap">
+                <img
+                    class="venue-logo"
+                    src="images/kids-park.png"
+                    alt="Kids Park">
+            </div>
+
+            <div class="venue-info">
                 <div class="ey" style="color:#257b78">Ubicación</div>
+
                 <h3>Kids Park</h3>
+
                 <p>
                     XG6H+622, Av. Reales Tamarindos y Calle Víctor Vélez,
                     Portoviejo.
                 </p>
-            </div>
 
-            <div style="text-align:center">
                 <a class="btn"
                    href="https://maps.app.goo.gl/KKbxtVorD4aJyePK6"
                    target="_blank"
@@ -633,6 +665,7 @@ input:focus,select:focus,textarea:focus{
                     Cómo llegar
                 </a>
             </div>
+
         </div>
     </div>
 </section>
