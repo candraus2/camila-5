@@ -100,10 +100,14 @@ p{
     align-items:flex-end;
     justify-content:center;
     text-align:center;
-    background:
-      linear-gradient(180deg,rgba(255,255,255,.05) 10%,rgba(113,70,173,.18) 50%,rgba(92,47,135,.72) 100%),
-      url("images/portada.jpg") center 28%/cover no-repeat;
-    transition:opacity .9s ease,visibility .9s ease;
+    background-color:#8a64b9;
+    background-image:
+      linear-gradient(180deg,rgba(255,255,255,.02) 0%,rgba(113,70,173,.16) 48%,rgba(76,39,112,.88) 100%),
+      url("images/portada.jpg");
+    background-position:center 28%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    transition:opacity .75s ease,visibility .75s ease;
 }
 .welcome-screen.hidden{
     opacity:0;
@@ -116,17 +120,11 @@ p{
     color:white;
 }
 .welcome-logo{
-    width:min(430px,82vw);
-    margin:0 auto 8px;
-    filter:drop-shadow(0 8px 18px rgba(72,36,100,.28));
-}
-.welcome-fallback{
-    display:none;
-    font-family:"Baloo 2",cursive;
-    font-size:clamp(62px,18vw,110px);
-    line-height:.75;
-    font-weight:700;
-    text-shadow:0 5px 25px rgba(0,0,0,.25);
+    width:min(560px,90vw);
+    max-height:230px;
+    object-fit:contain;
+    margin:0 auto 6px;
+    filter:drop-shadow(0 9px 24px rgba(47,18,75,.28));
 }
 .welcome-five{
     font-family:"Baloo 2",cursive;
@@ -136,16 +134,23 @@ p{
     margin:8px 0 20px;
 }
 .open-invitation{
+    appearance:none;
+    -webkit-appearance:none;
     border:0;
     border-radius:999px;
-    padding:16px 29px;
+    padding:16px 30px;
     background:white;
     color:var(--purple);
+    font-family:"Nunito",Arial,sans-serif;
+    font-size:13px;
     font-weight:900;
     letter-spacing:.08em;
     text-transform:uppercase;
     cursor:pointer;
     box-shadow:0 10px 30px rgba(40,16,67,.25);
+    position:relative;
+    z-index:10001;
+    touch-action:manipulation;
 }
 .welcome-date{
     margin-top:18px;
@@ -210,14 +215,11 @@ body.invitation-open .music-button{
     padding:0 22px 48px;
 }
 .hero-logo{
-    width:min(460px,86vw);
-    margin:0 auto 8px;
-}
-.hero-fallback{
-    display:none;
-    font-size:clamp(78px,18vw,140px);
-    color:var(--purple);
-    line-height:.7;
+    width:min(560px,90vw);
+    max-height:220px;
+    object-fit:contain;
+    margin:0 auto 3px;
+    filter:drop-shadow(0 6px 16px rgba(82,48,117,.18));
 }
 .hero-sub{
     font-family:"Baloo 2",cursive;
@@ -519,9 +521,7 @@ input:focus,select:focus,textarea:focus{
 
         <img class="welcome-logo"
              src="images/logo-camila.png"
-             alt="Camila Andraus"
-             onerror="this.style.display='none';document.getElementById('welcomeFallback').style.display='block';">
-        <div id="welcomeFallback" class="welcome-fallback">Camila</div>
+             alt="Camila Andraus">
 
         <div class="welcome-five">MIS 5 AÑOS</div>
 
@@ -547,9 +547,7 @@ input:focus,select:focus,textarea:focus{
 
         <img class="hero-logo"
              src="images/logo-camila.png"
-             alt="Camila Andraus"
-             onerror="this.style.display='none';document.getElementById('heroFallback').style.display='block';">
-        <h1 id="heroFallback" class="hero-fallback">Camila</h1>
+             alt="Camila Andraus">
 
         <div class="hero-sub">¡Cumplo 5 años!</div>
         <div class="hero-date">JUEVES 22 DE OCTUBRE · 5:00 PM</div>
@@ -796,32 +794,63 @@ const openInvitation = document.getElementById('openInvitation');
 
 music.volume = 0.45;
 
-openInvitation.addEventListener('click', async () => {
-    try{
-        await music.play();
-        musicButton.textContent = '♫';
-        musicButton.classList.remove('paused');
-        musicButton.setAttribute('aria-label','Pausar música');
-    }catch(error){
-        musicButton.textContent = '▶';
-        musicButton.classList.add('paused');
-        musicButton.setAttribute('aria-label','Reproducir música');
-    }
-
+function showInvitation(){
     document.body.classList.add('invitation-open');
     document.body.classList.remove('no-scroll');
+
     welcomeScreen.classList.add('hidden');
-    window.scrollTo(0,0);
+
+    // Remove the welcome layer after the fade so it can never
+    // remain on top or block clicks.
+    setTimeout(() => {
+        welcomeScreen.style.display = 'none';
+    }, 800);
+
+    window.scrollTo(0, 0);
+}
+
+openInvitation.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    // Always open the invitation first. Audio errors must never
+    // prevent the button from working.
+    showInvitation();
+
+    const playAttempt = music.play();
+
+    if(playAttempt && typeof playAttempt.then === 'function'){
+        playAttempt
+            .then(() => {
+                musicButton.textContent = '♫';
+                musicButton.classList.remove('paused');
+                musicButton.setAttribute('aria-label','Pausar música');
+            })
+            .catch(() => {
+                musicButton.textContent = '▶';
+                musicButton.classList.add('paused');
+                musicButton.setAttribute('aria-label','Reproducir música');
+            });
+    }
 });
 
-musicButton.addEventListener('click', async () => {
+musicButton.addEventListener('click', () => {
     if(music.paused){
-        try{
-            await music.play();
-            musicButton.textContent = '♫';
-            musicButton.classList.remove('paused');
-            musicButton.setAttribute('aria-label','Pausar música');
-        }catch(error){}
+        const playAttempt = music.play();
+
+        if(playAttempt && typeof playAttempt.then === 'function'){
+            playAttempt
+                .then(() => {
+                    musicButton.textContent = '♫';
+                    musicButton.classList.remove('paused');
+                    musicButton.setAttribute('aria-label','Pausar música');
+                })
+                .catch(() => {
+                    musicButton.textContent = '▶';
+                    musicButton.classList.add('paused');
+                    musicButton.setAttribute('aria-label','Reproducir música');
+                });
+        }
     }else{
         music.pause();
         musicButton.textContent = '▶';
