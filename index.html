@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7b6dc">
+<title>Camila cumple 5 | 22 de octubre de 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --pink:#ff75bb;
+    --pink-soft:#ffd9ec;
+    --fuchsia:#d94aa8;
+    --lilac:#cbb7ff;
+    --purple:#7447b9;
+    --turquoise:#7de4dc;
+    --turquoise-dark:#2ea9a0;
+    --cream:#fffaf7;
+    --ink:#553d69;
+    --white:#ffffff;
+    --shadow:0 18px 45px rgba(111,77,140,.18);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;
+    font-family:"Nunito",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    overflow-x:hidden;
+}
+body.no-scroll{overflow:hidden}
+
+a{color:inherit}
+img{max-width:100%;display:block}
+section{padding:78px 22px}
+.wrap{max-width:1050px;margin:auto}
+
+.ey{
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:800;
+    color:var(--fuchsia);
+}
+
+h1,h2,h3{
+    font-family:"Baloo 2",cursive;
+    margin:0;
+}
+h2{
+    font-size:clamp(42px,8vw,72px);
+    line-height:.95;
+    color:var(--purple);
+}
+p{
+    line-height:1.75;
+    font-size:17px;
+}
+
+/* Decorative confetti */
+.confetti{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:3;
+    overflow:hidden;
+    opacity:.45;
+}
+.confetti span{
+    position:absolute;
+    width:10px;
+    height:16px;
+    border-radius:6px;
+    animation:fall linear infinite;
+}
+.confetti span:nth-child(1){left:8%;background:var(--pink);animation-duration:12s}
+.confetti span:nth-child(2){left:20%;background:var(--turquoise);animation-duration:16s;animation-delay:-4s}
+.confetti span:nth-child(3){left:37%;background:var(--lilac);animation-duration:13s;animation-delay:-8s}
+.confetti span:nth-child(4){left:52%;background:var(--fuchsia);animation-duration:15s;animation-delay:-2s}
+.confetti span:nth-child(5){left:68%;background:var(--turquoise);animation-duration:11s;animation-delay:-6s}
+.confetti span:nth-child(6){left:82%;background:var(--pink);animation-duration:17s;animation-delay:-10s}
+.confetti span:nth-child(7){left:93%;background:var(--lilac);animation-duration:14s;animation-delay:-5s}
+@keyframes fall{
+    from{transform:translateY(-10vh) rotate(0)}
+    to{transform:translateY(115vh) rotate(520deg)}
+}
+
+/* WELCOME */
+.welcome-screen{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    text-align:center;
+    background:
+      linear-gradient(180deg,rgba(255,255,255,.05) 10%,rgba(113,70,173,.18) 50%,rgba(92,47,135,.72) 100%),
+      url("images/portada.jpg") center 28%/cover no-repeat;
+    transition:opacity .9s ease,visibility .9s ease;
+}
+.welcome-screen.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+.welcome-content{
+    width:100%;
+    padding:38px 24px 48px;
+    color:white;
+}
+.welcome-logo{
+    width:min(430px,82vw);
+    margin:0 auto 8px;
+    filter:drop-shadow(0 8px 18px rgba(72,36,100,.28));
+}
+.welcome-fallback{
+    display:none;
+    font-family:"Baloo 2",cursive;
+    font-size:clamp(62px,18vw,110px);
+    line-height:.75;
+    font-weight:700;
+    text-shadow:0 5px 25px rgba(0,0,0,.25);
+}
+.welcome-five{
+    font-family:"Baloo 2",cursive;
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:.08em;
+    margin:8px 0 20px;
+}
+.open-invitation{
+    border:0;
+    border-radius:999px;
+    padding:16px 29px;
+    background:white;
+    color:var(--purple);
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(40,16,67,.25);
+}
+.welcome-date{
+    margin-top:18px;
+    font-weight:800;
+    letter-spacing:.08em;
+}
+
+/* MUSIC */
+.music-button{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:52px;
+    height:52px;
+    border:0;
+    border-radius:50%;
+    background:var(--pink);
+    color:white;
+    z-index:500;
+    font-size:22px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+    opacity:0;
+    visibility:hidden;
+    transition:.25s ease;
+}
+body.invitation-open .music-button{
+    opacity:1;
+    visibility:visible;
+}
+.music-button.paused{
+    background:white;
+    color:var(--purple);
+}
+
+/* HERO */
+.hero{
+    min-height:100svh;
+    padding:0;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+}
+.hero:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("images/portada.jpg") center 28%/cover no-repeat;
+}
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(255,255,255,.02) 25%,rgba(246,190,225,.2) 55%,rgba(255,250,247,.98) 100%);
+}
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    text-align:center;
+    padding:0 22px 48px;
+}
+.hero-logo{
+    width:min(460px,86vw);
+    margin:0 auto 8px;
+}
+.hero-fallback{
+    display:none;
+    font-size:clamp(78px,18vw,140px);
+    color:var(--purple);
+    line-height:.7;
+}
+.hero-sub{
+    font-family:"Baloo 2",cursive;
+    font-size:clamp(26px,6vw,38px);
+    font-weight:700;
+    color:var(--fuchsia);
+}
+.hero-date{
+    margin-top:6px;
+    font-weight:800;
+    letter-spacing:.11em;
+    color:var(--purple);
+}
+
+/* COUNTDOWN */
+.countdown{
+    text-align:center;
+    background:linear-gradient(135deg,var(--pink-soft),#f5edff 55%,#dcfffb);
+}
+.count{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:32px;
+}
+.count div{
+    background:rgba(255,255,255,.8);
+    border-radius:24px;
+    padding:25px 10px;
+    box-shadow:var(--shadow);
+}
+.count b{
+    display:block;
+    font-family:"Baloo 2",cursive;
+    font-size:clamp(38px,8vw,72px);
+    color:var(--purple);
+    line-height:1;
+}
+.count span{
+    display:block;
+    margin-top:6px;
+    font-size:10px;
+    letter-spacing:.12em;
+    font-weight:900;
+    text-transform:uppercase;
+    color:var(--fuchsia);
+}
+
+/* WELCOME TEXT */
+.story{
+    background:var(--cream);
+}
+.story-grid{
+    display:grid;
+    grid-template-columns:1fr .9fr;
+    gap:48px;
+    align-items:center;
+}
+.story-card{
+    background:linear-gradient(145deg,#fff,#fff1f8);
+    border-radius:34px;
+    padding:36px;
+    box-shadow:var(--shadow);
+}
+.story-photo{
+    aspect-ratio:4/5;
+    border-radius:38px;
+    background:url("images/foto-bienvenida.jpg") center/cover no-repeat;
+    box-shadow:var(--shadow);
+    border:8px solid white;
+}
+.signature{
+    font-family:"Baloo 2",cursive;
+    font-size:34px;
+    color:var(--fuchsia);
+}
+
+/* DETAILS */
+.details{
+    background:linear-gradient(180deg,#f7eeff,#fff9fd);
+}
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:34px;
+}
+.card{
+    text-align:center;
+    background:white;
+    border-radius:26px;
+    padding:28px 18px;
+    box-shadow:var(--shadow);
+}
+.card-icon{font-size:31px}
+.card b{
+    display:block;
+    font-family:"Baloo 2",cursive;
+    font-size:27px;
+    color:var(--purple);
+    margin:5px 0;
+}
+.card small{
+    font-size:15px;
+    line-height:1.55;
+}
+.map-box{
+    margin-top:28px;
+    background:linear-gradient(135deg,var(--turquoise),#d9fffb);
+    border-radius:30px;
+    padding:32px;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:24px;
+    align-items:center;
+}
+.map-box h3{
+    font-size:38px;
+    color:#235f62;
+}
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border-radius:999px;
+    padding:15px 23px;
+    background:var(--purple);
+    color:white;
+    text-decoration:none;
+    font-weight:900;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    font-size:12px;
+}
+
+/* GALLERY */
+.gallery{
+    background:linear-gradient(180deg,#fff9fc,#f7efff);
+}
+.gallery-head{text-align:center}
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-top:36px;
+}
+.year-card{
+    background:white;
+    border-radius:28px;
+    padding:10px 10px 18px;
+    box-shadow:var(--shadow);
+    transform:rotate(-1deg);
+}
+.year-card:nth-child(even){transform:rotate(1deg)}
+.year-photo{
+    aspect-ratio:3/4;
+    background-size:cover;
+    background-position:center;
+    border-radius:22px;
+}
+.y1{background-image:url("images/camila-1.jpg")}
+.y2{background-image:url("images/camila-2.jpg")}
+.y3{background-image:url("images/camila-3.jpg")}
+.y4{background-image:url("images/camila-4.jpg")}
+.year-label{
+    text-align:center;
+    margin-top:13px;
+    font-family:"Baloo 2",cursive;
+    font-size:25px;
+    color:var(--fuchsia);
+}
+
+/* RSVP */
+.rsvp{
+    background:linear-gradient(135deg,#ffdeef,#f4e8ff 55%,#dffffb);
+}
+.rsvp-head{text-align:center}
+.form-box{
+    max-width:720px;
+    margin:34px auto 0;
+    background:white;
+    border-radius:34px;
+    padding:34px;
+    box-shadow:var(--shadow);
+}
+label{
+    display:block;
+    font-weight:800;
+    margin:14px 0 7px;
+    color:var(--purple);
+}
+input,select,textarea{
+    width:100%;
+    border:1px solid #eadcf2;
+    background:#fffafd;
+    border-radius:16px;
+    padding:14px 15px;
+    font:inherit;
+    color:var(--ink);
+    outline:none;
+}
+textarea{min-height:105px;resize:vertical}
+input:focus,select:focus,textarea:focus{
+    border-color:var(--pink);
+    box-shadow:0 0 0 3px rgba(255,117,187,.12);
+}
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+#attendanceFields{
+    transition:.25s ease;
+}
+.hidden-fields{display:none}
+.submit-btn{
+    width:100%;
+    margin-top:24px;
+    border:0;
+    border-radius:999px;
+    padding:16px 22px;
+    background:linear-gradient(90deg,var(--pink),var(--purple));
+    color:white;
+    font-weight:900;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+}
+.status{
+    margin-top:18px;
+    text-align:center;
+    font-weight:800;
+}
+.status.ok{color:#21845e}
+.status.error{color:#c33b68}
+
+/* FINAL */
+.final{
+    text-align:center;
+    background:white;
+}
+.final .big{
+    font-family:"Baloo 2",cursive;
+    font-size:clamp(42px,8vw,72px);
+    color:var(--purple);
+    line-height:1;
+}
+.final .name{
+    margin-top:15px;
+    font-family:"Baloo 2",cursive;
+    font-size:40px;
+    color:var(--fuchsia);
+}
+
+/* FOOTER IAM */
+.developer-bar{
+    background:var(--purple);
+    color:white;
+    text-align:center;
+    padding:12px 15px;
+    font-size:11px;
+    letter-spacing:.05em;
+}
+.developer-bar a{
+    color:white;
+    font-weight:800;
+    text-decoration:none;
+}
+
+@media(max-width:820px){
+    .story-grid,
+    .map-box{grid-template-columns:1fr}
+    .cards{grid-template-columns:1fr}
+    .timeline{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+    section{padding:62px 18px}
+    .count{grid-template-columns:1fr 1fr}
+    .form-grid{grid-template-columns:1fr}
+    .timeline{gap:12px}
+    .year-label{font-size:21px}
+    .story-card,.form-box{padding:25px 20px}
+}
+</style>
+</head>
+
+<body class="no-scroll">
+
+<div class="confetti" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+</div>
+
+<!-- PANTALLA DE APERTURA -->
+<div id="welcomeScreen" class="welcome-screen">
+    <div class="welcome-content">
+        <div class="ey" style="color:white">¡Estás invitado!</div>
+
+        <img class="welcome-logo"
+             src="images/logo-camila.png"
+             alt="Camila Andraus"
+             onerror="this.style.display='none';document.getElementById('welcomeFallback').style.display='block';">
+        <div id="welcomeFallback" class="welcome-fallback">Camila</div>
+
+        <div class="welcome-five">MIS 5 AÑOS</div>
+
+        <button id="openInvitation" class="open-invitation" type="button">
+            Abrir invitación
+        </button>
+
+        <div class="welcome-date">22 · 10 · 2026</div>
+    </div>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop preload="auto">
+    <source src="audio/musica.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" class="music-button" type="button" aria-label="Pausar música">♫</button>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="ey">Una aventura muy especial está por comenzar</div>
+
+        <img class="hero-logo"
+             src="images/logo-camila.png"
+             alt="Camila Andraus"
+             onerror="this.style.display='none';document.getElementById('heroFallback').style.display='block';">
+        <h1 id="heroFallback" class="hero-fallback">Camila</h1>
+
+        <div class="hero-sub">¡Cumplo 5 años!</div>
+        <div class="hero-date">JUEVES 22 DE OCTUBRE · 5:00 PM</div>
+    </div>
+</section>
+
+<!-- CUENTA REGRESIVA -->
+<section class="countdown">
+    <div class="wrap">
+        <div class="ey">Falta muy poquito</div>
+        <h2>Cuenta regresiva</h2>
+
+        <div class="count">
+            <div><b id="d">000</b><span>Días</span></div>
+            <div><b id="h">00</b><span>Horas</span></div>
+            <div><b id="m">00</b><span>Minutos</span></div>
+            <div><b id="s">00</b><span>Segundos</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- BIENVENIDA -->
+<section class="story">
+    <div class="wrap story-grid">
+        <div class="story-card">
+            <div class="ey">Mi cumpleaños</div>
+            <h2>¡Quiero celebrar contigo!</h2>
+            <p>
+                Estoy por cumplir 5 años y quiero vivir una tarde llena de juegos,
+                risas, colores y momentos especiales junto a las personas que quiero.
+            </p>
+            <p>
+                Será una aventura muy divertida y me encantará que seas parte de ella.
+            </p>
+            <div class="signature">Camila ♡</div>
+        </div>
+
+        <div class="story-photo" aria-label="Foto de Camila"></div>
+    </div>
+</section>
+
+<!-- DETALLES -->
+<section class="details">
+    <div class="wrap">
+        <div class="ey" style="text-align:center">Guarda la fecha</div>
+        <h2 style="text-align:center">Nos vemos en la fiesta</h2>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">📅</div>
+                <b>Fecha</b>
+                <small>Jueves<br>22 de octubre de 2026</small>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⏰</div>
+                <b>Hora</b>
+                <small>5:00 PM</small>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎉</div>
+                <b>Lugar</b>
+                <small>Kids Park<br>Portoviejo</small>
+            </div>
+        </div>
+
+        <div class="map-box">
+            <div>
+                <div class="ey" style="color:#257b78">Ubicación</div>
+                <h3>Kids Park</h3>
+                <p>
+                    XG6H+622, Av. Reales Tamarindos y Calle Víctor Vélez,
+                    Portoviejo.
+                </p>
+            </div>
+
+            <div style="text-align:center">
+                <a class="btn"
+                   href="https://maps.app.goo.gl/KKbxtVorD4aJyePK6"
+                   target="_blank"
+                   rel="noopener">
+                    Cómo llegar
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="gallery">
+    <div class="wrap">
+        <div class="gallery-head">
+            <div class="ey">Mis primeros años</div>
+            <h2>Creciendo con amor</h2>
+            <p>Un pequeño recorrido por mis primeros cuatro cumpleaños.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="year-card">
+                <div class="year-photo y1"></div>
+                <div class="year-label">1 añito</div>
+            </div>
+
+            <div class="year-card">
+                <div class="year-photo y2"></div>
+                <div class="year-label">2 añitos</div>
+            </div>
+
+            <div class="year-card">
+                <div class="year-photo y3"></div>
+                <div class="year-label">3 añitos</div>
+            </div>
+
+            <div class="year-card">
+                <div class="year-photo y4"></div>
+                <div class="year-label">4 añitos</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp">
+    <div class="wrap">
+        <div class="rsvp-head">
+            <div class="ey">Confirmación</div>
+            <h2>¿Nos acompañarán?</h2>
+            <p>Ayúdanos confirmando tu asistencia y algunos detalles.</p>
+        </div>
+
+        <div class="form-box">
+            <form id="rsvpForm">
+
+                <label for="confirmacion">¿Podrán acompañarnos?</label>
+                <select id="confirmacion" name="confirmacion" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Sí, ahí estaremos">Sí, ahí estaremos 🎉</option>
+                    <option value="No podremos acompañarlos">No podremos acompañarlos</option>
+                </select>
+
+                <label for="responsable">Nombre del padre, madre o responsable</label>
+                <input id="responsable" name="responsable" type="text" required
+                       placeholder="Escribe tu nombre">
+
+                <div id="attendanceFields">
+
+                    <label for="ninos">Nombre del niño o niños invitados</label>
+                    <input id="ninos" name="ninos" type="text"
+                           placeholder="Ej.: Mateo y Sofía">
+
+                    <div class="form-grid">
+                        <div>
+                            <label for="cantidadNinos">Cantidad de niños</label>
+                            <input id="cantidadNinos" name="cantidadNinos"
+                                   type="number" min="0" max="10" value="1">
+                        </div>
+
+                        <div>
+                            <label for="cantidadAdultos">Cantidad de adultos</label>
+                            <input id="cantidadAdultos" name="cantidadAdultos"
+                                   type="number" min="0" max="10" value="1">
+                        </div>
+                    </div>
+
+                    <label for="sorpresa">Nombre para la sorpresa personalizada</label>
+                    <input id="sorpresa" name="sorpresa" type="text"
+                           placeholder="Nombre que deseas colocar">
+
+                </div>
+
+                <label for="observaciones">Observaciones</label>
+                <textarea id="observaciones" name="observaciones"
+                          placeholder="Si deseas contarnos algo, escríbelo aquí"></textarea>
+
+                <button id="rsvpButton" class="submit-btn" type="submit">
+                    Enviar confirmación
+                </button>
+
+                <div id="thanks" class="status ok" hidden>
+                    ¡Gracias! Hemos recibido tu respuesta.
+                </div>
+
+                <div id="rsvpError" class="status error" hidden>
+                    No pudimos enviar la respuesta. Inténtalo nuevamente.
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- CIERRE -->
+<section class="final">
+    <div class="wrap">
+        <div class="ey">22 · 10 · 2026</div>
+        <div class="big">¡No puedo esperar para celebrar contigo!</div>
+        <div class="name">Camila ♡</div>
+    </div>
+</section>
+
+<!-- IAM -->
+<div class="developer-bar">
+    Invitación digital por <strong>IAM Marketing + Design</strong>
+    &nbsp;·&nbsp;
+    <a href="https://wa.me/593984487647" target="_blank" rel="noopener">
+        +593 98 448 7647
+    </a>
+</div>
+
+<script>
+/* ===============================
+   COUNTDOWN
+================================ */
+const targetDate = new Date('2026-10-22T17:00:00-05:00').getTime();
+
+function tick(){
+    const distance = Math.max(0, targetDate - Date.now());
+
+    document.getElementById('d').textContent =
+        String(Math.floor(distance / 86400000)).padStart(3,'0');
+
+    document.getElementById('h').textContent =
+        String(Math.floor((distance % 86400000) / 3600000)).padStart(2,'0');
+
+    document.getElementById('m').textContent =
+        String(Math.floor((distance % 3600000) / 60000)).padStart(2,'0');
+
+    document.getElementById('s').textContent =
+        String(Math.floor((distance % 60000) / 1000)).padStart(2,'0');
+}
+
+tick();
+setInterval(tick,1000);
+
+
+/* ===============================
+   MUSIC + OPEN INVITATION
+================================ */
+const music = document.getElementById('bgMusic');
+const musicButton = document.getElementById('musicButton');
+const welcomeScreen = document.getElementById('welcomeScreen');
+const openInvitation = document.getElementById('openInvitation');
+
+music.volume = 0.45;
+
+openInvitation.addEventListener('click', async () => {
+    try{
+        await music.play();
+        musicButton.textContent = '♫';
+        musicButton.classList.remove('paused');
+        musicButton.setAttribute('aria-label','Pausar música');
+    }catch(error){
+        musicButton.textContent = '▶';
+        musicButton.classList.add('paused');
+        musicButton.setAttribute('aria-label','Reproducir música');
+    }
+
+    document.body.classList.add('invitation-open');
+    document.body.classList.remove('no-scroll');
+    welcomeScreen.classList.add('hidden');
+    window.scrollTo(0,0);
+});
+
+musicButton.addEventListener('click', async () => {
+    if(music.paused){
+        try{
+            await music.play();
+            musicButton.textContent = '♫';
+            musicButton.classList.remove('paused');
+            musicButton.setAttribute('aria-label','Pausar música');
+        }catch(error){}
+    }else{
+        music.pause();
+        musicButton.textContent = '▶';
+        musicButton.classList.add('paused');
+        musicButton.setAttribute('aria-label','Reproducir música');
+    }
+});
+
+
+/* ===============================
+   RSVP DYNAMIC FIELDS
+================================ */
+const confirmacion = document.getElementById('confirmacion');
+const attendanceFields = document.getElementById('attendanceFields');
+
+confirmacion.addEventListener('change', () => {
+    const noAsiste = confirmacion.value === 'No podremos acompañarlos';
+
+    attendanceFields.classList.toggle('hidden-fields', noAsiste);
+
+    document.getElementById('ninos').required = !noAsiste;
+    document.getElementById('cantidadNinos').required = !noAsiste;
+    document.getElementById('cantidadAdultos').required = !noAsiste;
+    document.getElementById('sorpresa').required = !noAsiste;
+
+    if(noAsiste){
+        document.getElementById('ninos').value = '';
+        document.getElementById('cantidadNinos').value = '0';
+        document.getElementById('cantidadAdultos').value = '0';
+        document.getElementById('sorpresa').value = '';
+    }else if(confirmacion.value){
+        if(document.getElementById('cantidadNinos').value === '0'){
+            document.getElementById('cantidadNinos').value = '1';
+        }
+        if(document.getElementById('cantidadAdultos').value === '0'){
+            document.getElementById('cantidadAdultos').value = '1';
+        }
+    }
+});
+
+
+/* ===============================
+   RSVP SUBMISSION
+================================ */
+const RSVP_ENDPOINT =
+'https://script.google.com/macros/s/AKfycbyWubTfa-dCHpl0VjfrBep8Vjt8AG3hGCSD74m5eu1tuNNVRB35RbzRhmWMluACrgp2QA/exec';
+
+const rsvpForm = document.getElementById('rsvpForm');
+const rsvpButton = document.getElementById('rsvpButton');
+const thanks = document.getElementById('thanks');
+const rsvpError = document.getElementById('rsvpError');
+
+rsvpForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    thanks.hidden = true;
+    rsvpError.hidden = true;
+
+    rsvpButton.disabled = true;
+    rsvpButton.textContent = 'Enviando...';
+
+    const formData = new URLSearchParams();
+
+    formData.append('confirmacion',
+        document.getElementById('confirmacion').value);
+
+    formData.append('responsable',
+        document.getElementById('responsable').value.trim());
+
+    formData.append('ninos',
+        document.getElementById('ninos').value.trim());
+
+    formData.append('cantidadNinos',
+        document.getElementById('cantidadNinos').value);
+
+    formData.append('cantidadAdultos',
+        document.getElementById('cantidadAdultos').value);
+
+    formData.append('sorpresa',
+        document.getElementById('sorpresa').value.trim());
+
+    formData.append('observaciones',
+        document.getElementById('observaciones').value.trim());
+
+    try{
+        await fetch(RSVP_ENDPOINT,{
+            method:'POST',
+            mode:'no-cors',
+            body:formData
+        });
+
+        thanks.hidden = false;
+        rsvpForm.reset();
+        attendanceFields.classList.remove('hidden-fields');
+        document.getElementById('cantidadNinos').value = '1';
+        document.getElementById('cantidadAdultos').value = '1';
+
+        thanks.scrollIntoView({behavior:'smooth',block:'center'});
+
+    }catch(error){
+        rsvpError.hidden = false;
+    }finally{
+        rsvpButton.disabled = false;
+        rsvpButton.textContent = 'Enviar confirmación';
+    }
+});
+</script>
+
+</body>
+</html>
