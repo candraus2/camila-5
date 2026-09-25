@@ -69,7 +69,7 @@ p{
 }
 
 
-/* Decorative confetti */
+/* CONFETTI */
 
 .confetti{
     position:fixed;
@@ -102,7 +102,7 @@ p{
 }
 
 
-/* WELCOME */
+/* PANTALLA INICIAL */
 
 .welcome-screen{
     position:fixed;
@@ -112,14 +112,24 @@ p{
     align-items:flex-end;
     justify-content:center;
     text-align:center;
+
     background-color:#8a64b9;
     background-image:
-      linear-gradient(180deg,rgba(255,255,255,.02) 0%,rgba(113,70,173,.16) 48%,rgba(76,39,112,.88) 100%),
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,.02) 0%,
+        rgba(113,70,173,.16) 48%,
+        rgba(76,39,112,.88) 100%
+      ),
       url("images/portada.jpg");
+
     background-position:center 28%;
     background-size:cover;
     background-repeat:no-repeat;
-    transition:opacity .75s ease,visibility .75s ease;
+
+    transition:
+        opacity .75s ease,
+        visibility .75s ease;
 }
 
 .welcome-screen.hidden{
@@ -133,6 +143,36 @@ p{
     padding:38px 24px 48px;
     color:white;
 }
+
+
+/* PERSONALIZACIÓN */
+
+.guest-invitation{
+    color:white;
+    margin-bottom:6px;
+}
+
+.guest-name{
+    display:block;
+    font-family:"Baloo 2",cursive;
+    font-size:clamp(27px,7vw,42px);
+    font-weight:700;
+    line-height:1;
+    letter-spacing:0;
+    text-transform:none;
+    margin-bottom:7px;
+    color:white;
+    text-shadow:0 3px 16px rgba(62,27,88,.25);
+}
+
+.guest-message{
+    display:block;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:800;
+}
+
 
 .welcome-logo{
     width:min(560px,90vw);
@@ -310,7 +350,7 @@ body.invitation-open .music-button{
 }
 
 
-/* WELCOME TEXT */
+/* BIENVENIDA */
 
 .story{
     background:var(--cream);
@@ -345,7 +385,7 @@ body.invitation-open .music-button{
 }
 
 
-/* DETAILS */
+/* DETALLES */
 
 .details{
     background:linear-gradient(180deg,#f7eeff,#fff9fd);
@@ -366,7 +406,9 @@ body.invitation-open .music-button{
     box-shadow:var(--shadow);
 }
 
-.card-icon{font-size:31px}
+.card-icon{
+    font-size:31px;
+}
 
 .card b{
     display:block;
@@ -436,7 +478,7 @@ body.invitation-open .music-button{
 }
 
 
-/* GALLERY */
+/* GALERÍA */
 
 .gallery{
     background:linear-gradient(180deg,#fff9fc,#f7efff);
@@ -597,7 +639,7 @@ textarea:focus{
 }
 
 
-/* FOOTER IAM */
+/* FOOTER */
 
 .developer-bar{
     background:var(--purple);
@@ -667,6 +709,10 @@ textarea:focus{
     .form-box{
         padding:25px 20px;
     }
+
+    .guest-name{
+        font-size:32px;
+    }
 }
 
 </style>
@@ -695,8 +741,15 @@ textarea:focus{
 
     <div class="welcome-content">
 
-        <div class="ey" style="color:white">
-            ¡Estás invitado!
+        <!-- ESTE TEXTO CAMBIA AUTOMÁTICAMENTE -->
+        <div
+            id="guestInvitation"
+            class="guest-invitation">
+
+            <span class="guest-message">
+                ¡Estás invitado!
+            </span>
+
         </div>
 
         <img
@@ -857,9 +910,7 @@ textarea:focus{
 
     <div class="wrap">
 
-        <div
-            class="ey"
-            style="text-align:center">
+        <div class="ey" style="text-align:center">
             Guarda la fecha
         </div>
 
@@ -871,9 +922,7 @@ textarea:focus{
 
             <div class="card">
 
-                <div class="card-icon">
-                    📅
-                </div>
+                <div class="card-icon">📅</div>
 
                 <b>Fecha</b>
 
@@ -884,12 +933,9 @@ textarea:focus{
 
             </div>
 
-
             <div class="card">
 
-                <div class="card-icon">
-                    ⏰
-                </div>
+                <div class="card-icon">⏰</div>
 
                 <b>Hora</b>
 
@@ -899,12 +945,9 @@ textarea:focus{
 
             </div>
 
-
             <div class="card">
 
-                <div class="card-icon">
-                    🎉
-                </div>
+                <div class="card-icon">🎉</div>
 
                 <b>Lugar</b>
 
@@ -929,12 +972,9 @@ textarea:focus{
 
             </div>
 
-
             <div class="venue-info">
 
-                <div
-                    class="ey"
-                    style="color:#257b78">
+                <div class="ey" style="color:#257b78">
                     Ubicación
                 </div>
 
@@ -1049,7 +1089,6 @@ textarea:focus{
 
             <form id="rsvpForm">
 
-
                 <label for="confirmacion">
                     ¿Podrán acompañarnos?
                 </label>
@@ -1088,7 +1127,6 @@ textarea:focus{
 
                 <div id="attendanceFields">
 
-
                     <label for="ninos">
                         Nombre del niño o niños invitados
                     </label>
@@ -1098,9 +1136,6 @@ textarea:focus{
                         name="ninos"
                         type="text"
                         placeholder="Ej.: Mateo y Sofía">
-
-
-                    <!-- YA NO SE SOLICITA CANTIDAD DE NIÑOS -->
 
 
                     <label for="cantidadAdultos">
@@ -1162,7 +1197,6 @@ textarea:focus{
                     No pudimos enviar la respuesta. Inténtalo nuevamente.
                 </div>
 
-
             </form>
 
         </div>
@@ -1216,48 +1250,139 @@ textarea:focus{
 
 <script>
 
+/* ==========================================
+   PERSONALIZACIÓN DEL INVITADO
+========================================== */
+
+const urlParams =
+    new URLSearchParams(window.location.search);
+
+const invitado =
+    urlParams.get('invitado');
+
+const guestInvitation =
+    document.getElementById('guestInvitation');
+
+const campoNinos =
+    document.getElementById('ninos');
+
+
+if(invitado && invitado.trim() !== ''){
+
+    const nombreInvitado =
+        invitado.trim();
+
+    /*
+       Usamos textContent para colocar el nombre
+       de forma segura.
+    */
+
+    guestInvitation.innerHTML = '';
+
+    const guestName =
+        document.createElement('span');
+
+    guestName.className =
+        'guest-name';
+
+    guestName.textContent =
+        nombreInvitado;
+
+
+    const guestMessage =
+        document.createElement('span');
+
+    guestMessage.className =
+        'guest-message';
+
+    guestMessage.textContent =
+        '¡Estás invitada!';
+
+
+    guestInvitation.appendChild(
+        guestName
+    );
+
+    guestInvitation.appendChild(
+        guestMessage
+    );
+
+
+    /*
+       También precargamos el nombre
+       en el RSVP.
+    */
+
+    if(campoNinos){
+
+        campoNinos.value =
+            nombreInvitado;
+    }
+}
+
+
+
 /* ===============================
    COUNTDOWN
 ================================ */
 
 const targetDate =
-    new Date('2026-10-22T17:00:00-05:00').getTime();
+    new Date(
+        '2026-10-22T17:00:00-05:00'
+    ).getTime();
+
 
 function tick(){
 
     const distance =
-        Math.max(0, targetDate - Date.now());
+        Math.max(
+            0,
+            targetDate - Date.now()
+        );
+
 
     document.getElementById('d').textContent =
         String(
-            Math.floor(distance / 86400000)
+            Math.floor(
+                distance / 86400000
+            )
         ).padStart(3,'0');
+
 
     document.getElementById('h').textContent =
         String(
             Math.floor(
-                (distance % 86400000) / 3600000
+                (distance % 86400000) /
+                3600000
             )
         ).padStart(2,'0');
+
 
     document.getElementById('m').textContent =
         String(
             Math.floor(
-                (distance % 3600000) / 60000
+                (distance % 3600000) /
+                60000
             )
         ).padStart(2,'0');
+
 
     document.getElementById('s').textContent =
         String(
             Math.floor(
-                (distance % 60000) / 1000
+                (distance % 60000) /
+                1000
             )
         ).padStart(2,'0');
 }
 
+
 tick();
 
-setInterval(tick,1000);
+setInterval(
+    tick,
+    1000
+);
 
 
 
@@ -1295,9 +1420,13 @@ function showInvitation(){
         'hidden'
     );
 
-    setTimeout(() => {
-        welcomeScreen.style.display = 'none';
-    },800);
+    setTimeout(
+        () => {
+            welcomeScreen.style.display =
+                'none';
+        },
+        800
+    );
 
     window.scrollTo(0,0);
 }
@@ -1315,15 +1444,18 @@ openInvitation.addEventListener(
         const playAttempt =
             music.play();
 
+
         if(
             playAttempt &&
-            typeof playAttempt.then === 'function'
+            typeof playAttempt.then ===
+            'function'
         ){
 
             playAttempt
                 .then(() => {
 
-                    musicButton.textContent = '♫';
+                    musicButton.textContent =
+                        '♫';
 
                     musicButton.classList.remove(
                         'paused'
@@ -1338,7 +1470,8 @@ openInvitation.addEventListener(
 
                 .catch(() => {
 
-                    musicButton.textContent = '▶';
+                    musicButton.textContent =
+                        '▶';
 
                     musicButton.classList.add(
                         'paused'
@@ -1364,15 +1497,18 @@ musicButton.addEventListener(
             const playAttempt =
                 music.play();
 
+
             if(
                 playAttempt &&
-                typeof playAttempt.then === 'function'
+                typeof playAttempt.then ===
+                'function'
             ){
 
                 playAttempt
                     .then(() => {
 
-                        musicButton.textContent = '♫';
+                        musicButton.textContent =
+                            '♫';
 
                         musicButton.classList.remove(
                             'paused'
@@ -1387,7 +1523,8 @@ musicButton.addEventListener(
 
                     .catch(() => {
 
-                        musicButton.textContent = '▶';
+                        musicButton.textContent =
+                            '▶';
 
                         musicButton.classList.add(
                             'paused'
@@ -1405,7 +1542,8 @@ musicButton.addEventListener(
 
             music.pause();
 
-            musicButton.textContent = '▶';
+            musicButton.textContent =
+                '▶';
 
             musicButton.classList.add(
                 'paused'
@@ -1426,10 +1564,14 @@ musicButton.addEventListener(
 ================================ */
 
 const confirmacion =
-    document.getElementById('confirmacion');
+    document.getElementById(
+        'confirmacion'
+    );
 
 const attendanceFields =
-    document.getElementById('attendanceFields');
+    document.getElementById(
+        'attendanceFields'
+    );
 
 
 confirmacion.addEventListener(
@@ -1440,39 +1582,74 @@ confirmacion.addEventListener(
             confirmacion.value ===
             'No podremos acompañarlos';
 
+
         attendanceFields.classList.toggle(
             'hidden-fields',
             noAsiste
         );
 
-        document.getElementById('ninos').required =
-            !noAsiste;
 
-        document.getElementById('cantidadAdultos').required =
-            !noAsiste;
+        document.getElementById(
+            'ninos'
+        ).required = !noAsiste;
 
-        document.getElementById('sorpresa').required =
-            !noAsiste;
+
+        document.getElementById(
+            'cantidadAdultos'
+        ).required = !noAsiste;
+
+
+        document.getElementById(
+            'sorpresa'
+        ).required = !noAsiste;
 
 
         if(noAsiste){
 
-            document.getElementById('ninos').value = '';
+            document.getElementById(
+                'ninos'
+            ).value = '';
 
-            document.getElementById('cantidadAdultos').value =
-                '0';
 
-            document.getElementById('sorpresa').value = '';
+            document.getElementById(
+                'cantidadAdultos'
+            ).value = '0';
+
+
+            document.getElementById(
+                'sorpresa'
+            ).value = '';
 
         }else if(confirmacion.value){
 
+            /*
+               Si vuelve a seleccionar que sí,
+               restauramos el invitado personalizado.
+            */
+
             if(
-                document.getElementById('cantidadAdultos').value ===
-                '0'
+                invitado &&
+                document.getElementById(
+                    'ninos'
+                ).value === ''
             ){
 
-                document.getElementById('cantidadAdultos').value =
-                    '1';
+                document.getElementById(
+                    'ninos'
+                ).value =
+                    invitado.trim();
+            }
+
+
+            if(
+                document.getElementById(
+                    'cantidadAdultos'
+                ).value === '0'
+            ){
+
+                document.getElementById(
+                    'cantidadAdultos'
+                ).value = '1';
             }
         }
     }
@@ -1489,16 +1666,24 @@ const RSVP_ENDPOINT =
 
 
 const rsvpForm =
-    document.getElementById('rsvpForm');
+    document.getElementById(
+        'rsvpForm'
+    );
 
 const rsvpButton =
-    document.getElementById('rsvpButton');
+    document.getElementById(
+        'rsvpButton'
+    );
 
 const thanks =
-    document.getElementById('thanks');
+    document.getElementById(
+        'thanks'
+    );
 
 const rsvpError =
-    document.getElementById('rsvpError');
+    document.getElementById(
+        'rsvpError'
+    );
 
 
 rsvpForm.addEventListener(
@@ -1511,6 +1696,7 @@ rsvpForm.addEventListener(
         rsvpError.hidden = true;
 
         rsvpButton.disabled = true;
+
         rsvpButton.textContent =
             'Enviando...';
 
@@ -1587,9 +1773,24 @@ rsvpForm.addEventListener(
                 'hidden-fields'
             );
 
+
             document.getElementById(
                 'cantidadAdultos'
             ).value = '1';
+
+
+            /*
+               Después del reset mantenemos
+               el nombre del invitado personalizado.
+            */
+
+            if(invitado){
+
+                document.getElementById(
+                    'ninos'
+                ).value =
+                    invitado.trim();
+            }
 
 
             thanks.scrollIntoView({
@@ -1600,11 +1801,13 @@ rsvpForm.addEventListener(
 
         }catch(error){
 
-            rsvpError.hidden = false;
+            rsvpError.hidden =
+                false;
 
         }finally{
 
-            rsvpButton.disabled = false;
+            rsvpButton.disabled =
+                false;
 
             rsvpButton.textContent =
                 'Enviar confirmación';
