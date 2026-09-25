@@ -1257,8 +1257,15 @@ textarea:focus{
 const urlParams =
     new URLSearchParams(window.location.search);
 
+/* ==========================================
+   PERSONALIZACIÓN DEL INVITADO
+========================================== */
+
 const invitado =
     urlParams.get('invitado');
+
+const tipo =
+    urlParams.get('tipo');
 
 const guestInvitation =
     document.getElementById('guestInvitation');
@@ -1272,12 +1279,37 @@ if(invitado && invitado.trim() !== ''){
     const nombreInvitado =
         invitado.trim();
 
-    /*
-       Usamos textContent para colocar el nombre
-       de forma segura.
-    */
+    let mensajeInvitacion =
+        '¡Estás invitado!';
+
+
+    /* NIÑO */
+    if(tipo === 'm'){
+        mensajeInvitacion =
+            '¡Estás invitado!';
+    }
+
+    /* NIÑA */
+    else if(tipo === 'f'){
+        mensajeInvitacion =
+            '¡Estás invitada!';
+    }
+
+    /* DOS O MÁS NIÑAS */
+    else if(tipo === 'ff'){
+        mensajeInvitacion =
+            '¡Están invitadas!';
+    }
+
+    /* GRUPO MIXTO O VARIOS */
+    else if(tipo === 'mf'){
+        mensajeInvitacion =
+            '¡Están invitados!';
+    }
+
 
     guestInvitation.innerHTML = '';
+
 
     const guestName =
         document.createElement('span');
@@ -1296,7 +1328,7 @@ if(invitado && invitado.trim() !== ''){
         'guest-message';
 
     guestMessage.textContent =
-        '¡Estás invitada!';
+        mensajeInvitacion;
 
 
     guestInvitation.appendChild(
@@ -1308,10 +1340,7 @@ if(invitado && invitado.trim() !== ''){
     );
 
 
-    /*
-       También precargamos el nombre
-       en el RSVP.
-    */
+    /* PRECARGAR NOMBRE EN RSVP */
 
     if(campoNinos){
 
