@@ -695,9 +695,9 @@ textarea:focus{
 
     <div class="welcome-content">
 
-<div class="ey" id="guestInvitation" style="color:white">
-    ¡Estás invitado!
-</div>
+        <div class="ey" style="color:white">
+            ¡Estás invitado!
+        </div>
 
         <img
             class="welcome-logo"
@@ -1613,29 +1613,6 @@ rsvpForm.addEventListener(
 );
 
 </script>
-<script>
-const params = new URLSearchParams(window.location.search);
-const invitado = params.get("invitado");
 
-if(invitado){
-    const guestInvitation = document.getElementById("guestInvitation");
-
-    guestInvitation.innerHTML =
-        `<span style="
-            display:block;
-            font-size:22px;
-            margin-bottom:6px;
-            text-transform:none;
-            letter-spacing:0;
-        ">${invitado}</span>
-        ¡Estás invitada!`;
-
-    const campoNinos = document.getElementById("ninos");
-
-    if(campoNinos){
-        campoNinos.value = invitado;
-    }
-}
-</script>
 </body>
 </html>
