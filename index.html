@@ -1,17 +1,36 @@
 <!doctype html>
 <html lang="es">
+
 <head>
+
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#f7b6dc">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+<meta name="theme-color"
+      content="#f7b6dc">
+
+
+<!-- ========================================
+     INFORMACIÓN GENERAL
+========================================= -->
 
 <title>Camila cumple 5 | 22 de octubre de 2026</title>
 
 <meta name="description"
       content="¡Estás invitado a celebrar los 5 años de Camila!">
 
-<!-- WHATSAPP / FACEBOOK -->
-<meta property="og:type" content="website">
+
+<!-- ========================================
+     WHATSAPP / FACEBOOK / OPEN GRAPH
+========================================= -->
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:url"
+      content="https://candraus2.github.io/camila-5/">
 
 <meta property="og:title"
       content="Camila cumple 5 🎉">
@@ -20,7 +39,13 @@
       content="¡Estás invitado a celebrar conmigo! Abre tu invitación personalizada.">
 
 <meta property="og:image"
-      content="https://candraus2.github.io/NOMBRE-DEL-REPOSITORIO/images/miniatura-whatsapp.png">
+      content="https://candraus2.github.io/camila-5/images/miniatura-whatsapp.png">
+
+<meta property="og:image:secure_url"
+      content="https://candraus2.github.io/camila-5/images/miniatura-whatsapp.png">
+
+<meta property="og:image:type"
+      content="image/png">
 
 <meta property="og:image:width"
       content="1200">
@@ -28,15 +53,50 @@
 <meta property="og:image:height"
       content="630">
 
-<meta property="og:image:type"
-      content="image/png">
+<meta property="og:image:alt"
+      content="Camila cumple 5 años">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ========================================
+     X / TWITTER
+========================================= -->
+
+<meta name="twitter:card"
+      content="summary_large_image">
+
+<meta name="twitter:title"
+      content="Camila cumple 5 🎉">
+
+<meta name="twitter:description"
+      content="¡Estás invitado a celebrar conmigo! Abre tu invitación personalizada.">
+
+<meta name="twitter:image"
+      content="https://candraus2.github.io/camila-5/images/miniatura-whatsapp.png">
+
+
+<!-- ========================================
+     FUENTES
+========================================= -->
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet">
+
 
 <style>
+
+/* ========================================
+   VARIABLES
+========================================= */
+
 :root{
+
     --pink:#ff75bb;
     --pink-soft:#ffd9ec;
     --fuchsia:#d94aa8;
@@ -47,709 +107,1468 @@
     --cream:#fffaf7;
     --ink:#553d69;
     --white:#ffffff;
-    --shadow:0 18px 45px rgba(111,77,140,.18);
+
+    --shadow:
+        0 18px 45px rgba(111,77,140,.18);
 }
 
-*{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+*{
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
 
 body{
+
     margin:0;
-    font-family:"Nunito",Arial,sans-serif;
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
     color:var(--ink);
+
     background:var(--cream);
+
     overflow-x:hidden;
 }
 
-body.no-scroll{overflow:hidden}
 
-a{color:inherit}
-img{max-width:100%;display:block}
-section{padding:78px 22px}
-.wrap{max-width:1050px;margin:auto}
+body.no-scroll{
+    overflow:hidden;
+}
+
+
+a{
+    color:inherit;
+}
+
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+
+section{
+    padding:78px 22px;
+}
+
+
+.wrap{
+    max-width:1050px;
+    margin:auto;
+}
+
 
 .ey{
+
     font-size:12px;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     font-weight:800;
+
     color:var(--fuchsia);
 }
 
-h1,h2,h3{
-    font-family:"Baloo 2",cursive;
+
+h1,
+h2,
+h3{
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
     margin:0;
 }
 
+
 h2{
-    font-size:clamp(42px,8vw,72px);
+
+    font-size:
+        clamp(42px,8vw,72px);
+
     line-height:.95;
+
     color:var(--purple);
 }
 
+
 p{
+
     line-height:1.75;
+
     font-size:17px;
 }
 
 
-/* CONFETTI */
+
+/* ========================================
+   CONFETTI
+========================================= */
 
 .confetti{
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:3;
+
     overflow:hidden;
+
     opacity:.45;
 }
 
+
 .confetti span{
+
     position:absolute;
+
     width:10px;
+
     height:16px;
+
     border-radius:6px;
-    animation:fall linear infinite;
+
+    animation:
+        fall linear infinite;
 }
 
-.confetti span:nth-child(1){left:8%;background:var(--pink);animation-duration:12s}
-.confetti span:nth-child(2){left:20%;background:var(--turquoise);animation-duration:16s;animation-delay:-4s}
-.confetti span:nth-child(3){left:37%;background:var(--lilac);animation-duration:13s;animation-delay:-8s}
-.confetti span:nth-child(4){left:52%;background:var(--fuchsia);animation-duration:15s;animation-delay:-2s}
-.confetti span:nth-child(5){left:68%;background:var(--turquoise);animation-duration:11s;animation-delay:-6s}
-.confetti span:nth-child(6){left:82%;background:var(--pink);animation-duration:17s;animation-delay:-10s}
-.confetti span:nth-child(7){left:93%;background:var(--lilac);animation-duration:14s;animation-delay:-5s}
+
+.confetti span:nth-child(1){
+
+    left:8%;
+
+    background:var(--pink);
+
+    animation-duration:12s;
+}
+
+
+.confetti span:nth-child(2){
+
+    left:20%;
+
+    background:var(--turquoise);
+
+    animation-duration:16s;
+
+    animation-delay:-4s;
+}
+
+
+.confetti span:nth-child(3){
+
+    left:37%;
+
+    background:var(--lilac);
+
+    animation-duration:13s;
+
+    animation-delay:-8s;
+}
+
+
+.confetti span:nth-child(4){
+
+    left:52%;
+
+    background:var(--fuchsia);
+
+    animation-duration:15s;
+
+    animation-delay:-2s;
+}
+
+
+.confetti span:nth-child(5){
+
+    left:68%;
+
+    background:var(--turquoise);
+
+    animation-duration:11s;
+
+    animation-delay:-6s;
+}
+
+
+.confetti span:nth-child(6){
+
+    left:82%;
+
+    background:var(--pink);
+
+    animation-duration:17s;
+
+    animation-delay:-10s;
+}
+
+
+.confetti span:nth-child(7){
+
+    left:93%;
+
+    background:var(--lilac);
+
+    animation-duration:14s;
+
+    animation-delay:-5s;
+}
+
 
 @keyframes fall{
-    from{transform:translateY(-10vh) rotate(0)}
-    to{transform:translateY(115vh) rotate(520deg)}
+
+    from{
+
+        transform:
+            translateY(-10vh)
+            rotate(0);
+
+    }
+
+    to{
+
+        transform:
+            translateY(115vh)
+            rotate(520deg);
+
+    }
+
 }
 
 
-/* PANTALLA INICIAL */
+
+/* ========================================
+   PANTALLA DE APERTURA
+========================================= */
 
 .welcome-screen{
+
     position:fixed;
+
     inset:0;
+
     z-index:9999;
+
     display:flex;
+
     align-items:flex-end;
+
     justify-content:center;
+
     text-align:center;
 
-    background-color:#8a64b9;
-    background-image:
-      linear-gradient(
-        180deg,
-        rgba(255,255,255,.02) 0%,
-        rgba(113,70,173,.16) 48%,
-        rgba(76,39,112,.88) 100%
-      ),
-      url("images/portada.jpg");
 
-    background-position:center 28%;
-    background-size:cover;
-    background-repeat:no-repeat;
+    background-color:#8a64b9;
+
+
+    background-image:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.02) 0%,
+            rgba(113,70,173,.16) 48%,
+            rgba(76,39,112,.88) 100%
+        ),
+
+        url("images/portada.jpg");
+
+
+    background-position:
+        center 28%;
+
+
+    background-size:
+        cover;
+
+
+    background-repeat:
+        no-repeat;
+
 
     transition:
+
         opacity .75s ease,
+
         visibility .75s ease;
 }
 
+
 .welcome-screen.hidden{
+
     opacity:0;
+
     visibility:hidden;
+
     pointer-events:none;
 }
 
+
 .welcome-content{
+
     width:100%;
-    padding:38px 24px 48px;
+
+    padding:
+        38px 24px 48px;
+
     color:white;
 }
 
 
-/* PERSONALIZACIÓN */
+
+/* ========================================
+   INVITADO PERSONALIZADO
+========================================= */
 
 .guest-invitation{
+
     color:white;
+
     margin-bottom:6px;
 }
 
+
 .guest-name{
+
     display:block;
-    font-family:"Baloo 2",cursive;
-    font-size:clamp(27px,7vw,42px);
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
+    font-size:
+        clamp(27px,7vw,42px);
+
     font-weight:700;
+
     line-height:1;
+
     letter-spacing:0;
+
     text-transform:none;
+
     margin-bottom:7px;
+
     color:white;
-    text-shadow:0 3px 16px rgba(62,27,88,.25);
+
+    text-shadow:
+        0 3px 16px
+        rgba(62,27,88,.25);
 }
 
+
 .guest-message{
+
     display:block;
+
     font-size:11px;
+
     letter-spacing:.18em;
+
     text-transform:uppercase;
+
     font-weight:800;
 }
+
 
 
 .welcome-logo{
-    width:min(560px,90vw);
+
+    width:
+        min(560px,90vw);
+
     max-height:230px;
+
     object-fit:contain;
-    margin:0 auto 6px;
-    filter:drop-shadow(0 9px 24px rgba(47,18,75,.28));
+
+    margin:
+        0 auto 6px;
+
+    filter:
+        drop-shadow(
+            0 9px 24px
+            rgba(47,18,75,.28)
+        );
 }
+
 
 .welcome-five{
-    font-family:"Baloo 2",cursive;
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
     font-size:24px;
+
     font-weight:700;
+
     letter-spacing:.08em;
-    margin:8px 0 20px;
+
+    margin:
+        8px 0 20px;
 }
 
+
 .open-invitation{
+
     appearance:none;
+
     -webkit-appearance:none;
+
     border:0;
+
     border-radius:999px;
-    padding:16px 30px;
+
+    padding:
+        16px 30px;
+
     background:white;
+
     color:var(--purple);
-    font-family:"Nunito",Arial,sans-serif;
+
+    font-family:
+        "Nunito",
+        Arial,
+        sans-serif;
+
     font-size:13px;
+
     font-weight:900;
+
     letter-spacing:.08em;
+
     text-transform:uppercase;
+
     cursor:pointer;
-    box-shadow:0 10px 30px rgba(40,16,67,.25);
+
+    box-shadow:
+        0 10px 30px
+        rgba(40,16,67,.25);
+
     position:relative;
+
     z-index:10001;
+
     touch-action:manipulation;
 }
 
+
 .welcome-date{
+
     margin-top:18px;
+
     font-weight:800;
+
     letter-spacing:.08em;
 }
 
 
-/* MUSIC */
+
+/* ========================================
+   MÚSICA
+========================================= */
 
 .music-button{
+
     position:fixed;
+
     right:18px;
+
     bottom:18px;
+
     width:52px;
+
     height:52px;
+
     border:0;
+
     border-radius:50%;
+
     background:var(--pink);
+
     color:white;
+
     z-index:500;
+
     font-size:22px;
+
     box-shadow:var(--shadow);
+
     cursor:pointer;
+
     opacity:0;
+
     visibility:hidden;
+
     transition:.25s ease;
 }
 
-body.invitation-open .music-button{
+
+body.invitation-open
+.music-button{
+
     opacity:1;
+
     visibility:visible;
 }
 
+
 .music-button.paused{
+
     background:white;
+
     color:var(--purple);
 }
 
 
-/* HERO */
+
+/* ========================================
+   HERO
+========================================= */
 
 .hero{
+
     min-height:100svh;
+
     padding:0;
+
     position:relative;
+
     display:flex;
+
     align-items:flex-end;
+
     overflow:hidden;
 }
 
+
 .hero:before{
+
     content:"";
+
     position:absolute;
+
     inset:0;
-    background:url("images/portada.jpg") center 28%/cover no-repeat;
+
+    background:
+
+        url("images/portada.jpg")
+        center 28% /
+        cover
+        no-repeat;
 }
+
 
 .hero:after{
+
     content:"";
+
     position:absolute;
+
     inset:0;
-    background:linear-gradient(
-        180deg,
-        rgba(255,255,255,.02) 25%,
-        rgba(246,190,225,.2) 55%,
-        rgba(255,250,247,.98) 100%
-    );
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            rgba(255,255,255,.02)
+            25%,
+
+            rgba(246,190,225,.2)
+            55%,
+
+            rgba(255,250,247,.98)
+            100%
+
+        );
 }
+
 
 .hero-content{
+
     position:relative;
+
     z-index:2;
+
     width:100%;
+
     text-align:center;
-    padding:0 22px 48px;
+
+    padding:
+        0 22px 48px;
 }
+
 
 .hero-logo{
-    width:min(560px,90vw);
+
+    width:
+        min(560px,90vw);
+
     max-height:220px;
+
     object-fit:contain;
-    margin:0 auto 3px;
-    filter:drop-shadow(0 6px 16px rgba(82,48,117,.18));
+
+    margin:
+        0 auto 3px;
+
+    filter:
+
+        drop-shadow(
+            0 6px 16px
+            rgba(82,48,117,.18)
+        );
 }
 
+
 .hero-sub{
-    font-family:"Baloo 2",cursive;
-    font-size:clamp(26px,6vw,38px);
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
+    font-size:
+        clamp(26px,6vw,38px);
+
     font-weight:700;
+
     color:var(--fuchsia);
 }
 
+
 .hero-date{
+
     margin-top:6px;
+
     font-weight:800;
+
     letter-spacing:.11em;
+
     color:var(--purple);
 }
 
 
-/* COUNTDOWN */
+
+/* ========================================
+   CUENTA REGRESIVA
+========================================= */
 
 .countdown{
+
     text-align:center;
-    background:linear-gradient(135deg,var(--pink-soft),#f5edff 55%,#dcfffb);
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            var(--pink-soft),
+
+            #f5edff 55%,
+
+            #dcfffb
+
+        );
 }
 
+
 .count{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:12px;
+
     margin-top:32px;
 }
 
+
 .count div{
-    background:rgba(255,255,255,.8);
+
+    background:
+        rgba(255,255,255,.8);
+
     border-radius:24px;
-    padding:25px 10px;
+
+    padding:
+        25px 10px;
+
     box-shadow:var(--shadow);
 }
 
+
 .count b{
+
     display:block;
-    font-family:"Baloo 2",cursive;
-    font-size:clamp(38px,8vw,72px);
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
+    font-size:
+        clamp(38px,8vw,72px);
+
     color:var(--purple);
+
     line-height:1;
 }
 
+
 .count span{
+
     display:block;
+
     margin-top:6px;
+
     font-size:10px;
+
     letter-spacing:.12em;
+
     font-weight:900;
+
     text-transform:uppercase;
+
     color:var(--fuchsia);
 }
 
 
-/* BIENVENIDA */
+
+/* ========================================
+   HISTORIA
+========================================= */
 
 .story{
-    background:var(--cream);
+
+    background:
+        var(--cream);
 }
 
+
 .story-grid{
+
     display:grid;
-    grid-template-columns:1fr .9fr;
+
+    grid-template-columns:
+        1fr .9fr;
+
     gap:48px;
+
     align-items:center;
 }
 
+
 .story-card{
-    background:linear-gradient(145deg,#fff,#fff1f8);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #fff,
+            #fff1f8
+        );
+
     border-radius:34px;
+
     padding:36px;
+
     box-shadow:var(--shadow);
 }
+
 
 .story-photo{
+
     aspect-ratio:4/5;
+
     border-radius:38px;
-    background:url("images/foto-bienvenida.jpg") center/cover no-repeat;
+
+    background:
+
+        url("images/foto-bienvenida.jpg")
+        center /
+        cover
+        no-repeat;
+
     box-shadow:var(--shadow);
-    border:8px solid white;
+
+    border:
+        8px solid white;
 }
 
+
 .signature{
-    font-family:"Baloo 2",cursive;
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
     font-size:34px;
+
     color:var(--fuchsia);
 }
 
 
-/* DETALLES */
+
+/* ========================================
+   DETALLES
+========================================= */
 
 .details{
-    background:linear-gradient(180deg,#f7eeff,#fff9fd);
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #f7eeff,
+            #fff9fd
+        );
 }
 
+
 .cards{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:18px;
+
     margin-top:34px;
 }
 
+
 .card{
+
     text-align:center;
+
     background:white;
+
     border-radius:26px;
-    padding:28px 18px;
+
+    padding:
+        28px 18px;
+
     box-shadow:var(--shadow);
 }
 
+
 .card-icon{
+
     font-size:31px;
 }
 
+
 .card b{
+
     display:block;
-    font-family:"Baloo 2",cursive;
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
     font-size:27px;
+
     color:var(--purple);
-    margin:5px 0;
+
+    margin:
+        5px 0;
 }
 
+
 .card small{
+
     font-size:15px;
+
     line-height:1.55;
 }
 
+
 .map-box{
+
     margin-top:28px;
-    background:linear-gradient(135deg,var(--turquoise),#d9fffb);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--turquoise),
+            #d9fffb
+        );
+
     border-radius:30px;
+
     padding:32px;
+
     display:grid;
-    grid-template-columns:1.2fr .8fr;
+
+    grid-template-columns:
+        1.2fr .8fr;
+
     gap:24px;
+
     align-items:center;
 }
 
+
 .map-box h3{
+
     font-size:38px;
+
     color:#235f62;
 }
 
+
 .venue-logo-wrap{
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     padding:12px;
 }
 
+
 .venue-logo{
-    width:min(330px,88%);
+
+    width:
+        min(330px,88%);
+
     max-height:220px;
+
     object-fit:contain;
-    filter:drop-shadow(0 10px 24px rgba(31,77,86,.14));
+
+    filter:
+
+        drop-shadow(
+            0 10px 24px
+            rgba(31,77,86,.14)
+        );
 }
 
+
 .venue-info{
+
     text-align:left;
 }
 
+
 .venue-info .btn{
+
     margin-top:6px;
 }
 
+
 .btn{
+
     display:inline-flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:8px;
+
     border-radius:999px;
-    padding:15px 23px;
-    background:var(--purple);
+
+    padding:
+        15px 23px;
+
+    background:
+        var(--purple);
+
     color:white;
+
     text-decoration:none;
+
     font-weight:900;
+
     letter-spacing:.06em;
+
     text-transform:uppercase;
+
     font-size:12px;
 }
 
 
-/* GALERÍA */
+
+/* ========================================
+   GALERÍA
+========================================= */
 
 .gallery{
-    background:linear-gradient(180deg,#fff9fc,#f7efff);
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #fff9fc,
+            #f7efff
+        );
 }
 
+
 .gallery-head{
+
     text-align:center;
 }
 
+
 .timeline{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+
+    grid-template-columns:
+        repeat(4,1fr);
+
     gap:18px;
+
     margin-top:36px;
 }
 
+
 .year-card{
+
     background:white;
+
     border-radius:28px;
-    padding:10px 10px 18px;
+
+    padding:
+        10px 10px 18px;
+
     box-shadow:var(--shadow);
-    transform:rotate(-1deg);
+
+    transform:
+        rotate(-1deg);
 }
+
 
 .year-card:nth-child(even){
-    transform:rotate(1deg);
+
+    transform:
+        rotate(1deg);
 }
 
+
 .year-photo{
+
     aspect-ratio:3/4;
+
     background-size:cover;
+
     background-position:center;
+
     border-radius:22px;
 }
 
-.y1{background-image:url("images/camila-1.jpg")}
-.y2{background-image:url("images/camila-2.jpg")}
-.y3{background-image:url("images/camila-3.jpg")}
-.y4{background-image:url("images/camila-4.jpg")}
+
+.y1{
+
+    background-image:
+        url("images/camila-1.jpg");
+}
+
+
+.y2{
+
+    background-image:
+        url("images/camila-2.jpg");
+}
+
+
+.y3{
+
+    background-image:
+        url("images/camila-3.jpg");
+}
+
+
+.y4{
+
+    background-image:
+        url("images/camila-4.jpg");
+}
+
 
 .year-label{
+
     text-align:center;
+
     margin-top:13px;
-    font-family:"Baloo 2",cursive;
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
     font-size:25px;
+
     color:var(--fuchsia);
 }
 
 
-/* RSVP */
+
+/* ========================================
+   RSVP
+========================================= */
 
 .rsvp{
-    background:linear-gradient(135deg,#ffdeef,#f4e8ff 55%,#dffffb);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #ffdeef,
+            #f4e8ff 55%,
+            #dffffb
+        );
 }
 
+
 .rsvp-head{
+
     text-align:center;
 }
 
+
 .form-box{
+
     max-width:720px;
-    margin:34px auto 0;
+
+    margin:
+        34px auto 0;
+
     background:white;
+
     border-radius:34px;
+
     padding:34px;
+
     box-shadow:var(--shadow);
 }
 
+
 label{
+
     display:block;
+
     font-weight:800;
-    margin:14px 0 7px;
+
+    margin:
+        14px 0 7px;
+
     color:var(--purple);
 }
+
 
 input,
 select,
 textarea{
+
     width:100%;
-    border:1px solid #eadcf2;
+
+    border:
+        1px solid #eadcf2;
+
     background:#fffafd;
+
     border-radius:16px;
-    padding:14px 15px;
+
+    padding:
+        14px 15px;
+
     font:inherit;
+
     color:var(--ink);
+
     outline:none;
 }
 
+
 textarea{
+
     min-height:105px;
+
     resize:vertical;
 }
+
 
 input:focus,
 select:focus,
 textarea:focus{
-    border-color:var(--pink);
-    box-shadow:0 0 0 3px rgba(255,117,187,.12);
+
+    border-color:
+        var(--pink);
+
+    box-shadow:
+
+        0 0 0 3px
+        rgba(255,117,187,.12);
 }
 
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-}
 
 #attendanceFields{
+
     transition:.25s ease;
 }
 
+
 .hidden-fields{
+
     display:none;
 }
 
+
 .submit-btn{
+
     width:100%;
+
     margin-top:24px;
+
     border:0;
+
     border-radius:999px;
-    padding:16px 22px;
-    background:linear-gradient(90deg,var(--pink),var(--purple));
+
+    padding:
+        16px 22px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--pink),
+            var(--purple)
+        );
+
     color:white;
+
     font-weight:900;
+
     letter-spacing:.08em;
+
     text-transform:uppercase;
+
     cursor:pointer;
 }
 
+
 .status{
+
     margin-top:18px;
+
     text-align:center;
+
     font-weight:800;
 }
 
-.status.ok{color:#21845e}
-.status.error{color:#c33b68}
+
+.status.ok{
+
+    color:#21845e;
+}
 
 
-/* FINAL */
+.status.error{
+
+    color:#c33b68;
+}
+
+
+
+/* ========================================
+   CIERRE
+========================================= */
 
 .final{
+
     text-align:center;
+
     background:white;
 }
 
+
 .final .big{
-    font-family:"Baloo 2",cursive;
-    font-size:clamp(42px,8vw,72px);
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
+    font-size:
+        clamp(42px,8vw,72px);
+
     color:var(--purple);
+
     line-height:1;
 }
 
+
 .final .name{
+
     margin-top:15px;
-    font-family:"Baloo 2",cursive;
+
+    font-family:
+        "Baloo 2",
+        cursive;
+
     font-size:40px;
+
     color:var(--fuchsia);
 }
 
 
-/* FOOTER */
+
+/* ========================================
+   FOOTER
+========================================= */
 
 .developer-bar{
-    background:var(--purple);
+
+    background:
+        var(--purple);
+
     color:white;
+
     text-align:center;
-    padding:12px 15px;
+
+    padding:
+        12px 15px;
+
     font-size:11px;
+
     letter-spacing:.05em;
 }
 
+
 .developer-bar a{
+
     color:white;
+
     font-weight:800;
+
     text-decoration:none;
 }
 
 
-/* RESPONSIVE */
+
+/* ========================================
+   RESPONSIVE
+========================================= */
 
 @media(max-width:820px){
 
     .story-grid,
     .map-box{
+
         grid-template-columns:1fr;
     }
+
 
     .cards{
+
         grid-template-columns:1fr;
     }
 
+
     .timeline{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            1fr 1fr;
     }
 
+
     .venue-info{
+
         text-align:center;
     }
 
+
     .venue-logo{
-        width:min(290px,78vw);
+
+        width:
+            min(290px,78vw);
     }
+
 }
+
 
 @media(max-width:560px){
 
     section{
-        padding:62px 18px;
+
+        padding:
+            62px 18px;
     }
+
 
     .count{
-        grid-template-columns:1fr 1fr;
+
+        grid-template-columns:
+            1fr 1fr;
     }
 
-    .form-grid{
-        grid-template-columns:1fr;
-    }
 
     .timeline{
+
         gap:12px;
     }
 
+
     .year-label{
+
         font-size:21px;
     }
 
+
     .story-card,
     .form-box{
-        padding:25px 20px;
+
+        padding:
+            25px 20px;
     }
 
+
     .guest-name{
+
         font-size:32px;
     }
+
 }
 
 </style>
+
 </head>
+
 
 
 <body class="no-scroll">
 
 
-<!-- CONFETTI -->
+<!-- ========================================
+     CONFETTI
+========================================= -->
 
-<div class="confetti" aria-hidden="true">
+<div
+    class="confetti"
+    aria-hidden="true">
+
     <span></span>
     <span></span>
     <span></span>
@@ -757,16 +1576,25 @@ textarea:focus{
     <span></span>
     <span></span>
     <span></span>
+
 </div>
 
 
-<!-- PANTALLA DE APERTURA -->
 
-<div id="welcomeScreen" class="welcome-screen">
+<!-- ========================================
+     PANTALLA DE APERTURA
+========================================= -->
+
+<div
+    id="welcomeScreen"
+    class="welcome-screen">
+
 
     <div class="welcome-content">
 
-        <!-- ESTE TEXTO CAMBIA AUTOMÁTICAMENTE -->
+
+        <!-- INVITADO PERSONALIZADO -->
+
         <div
             id="guestInvitation"
             class="guest-invitation">
@@ -777,109 +1605,208 @@ textarea:focus{
 
         </div>
 
+
+
         <img
             class="welcome-logo"
             src="images/logo-camila.png"
             alt="Camila Andraus">
 
+
+
         <div class="welcome-five">
+
             A CELEBRAR MIS 5 AÑOS
+
         </div>
+
+
 
         <button
             id="openInvitation"
             class="open-invitation"
             type="button">
+
             Abrir invitación
+
         </button>
 
+
+
         <div class="welcome-date">
+
             22 · 10 · 2026
+
         </div>
+
 
     </div>
 
 </div>
 
 
-<!-- AUDIO -->
 
-<audio id="bgMusic" loop preload="auto">
-    <source src="audio/musica.mp3" type="audio/mpeg">
+<!-- ========================================
+     AUDIO
+========================================= -->
+
+<audio
+    id="bgMusic"
+    loop
+    preload="auto">
+
+    <source
+        src="audio/musica.mp3"
+        type="audio/mpeg">
+
 </audio>
+
+
 
 <button
     id="musicButton"
     class="music-button"
     type="button"
     aria-label="Pausar música">
+
     ♫
+
 </button>
 
 
-<!-- HERO -->
+
+<!-- ========================================
+     PORTADA
+========================================= -->
 
 <section class="hero">
 
+
     <div class="hero-content">
 
-        <div class="ey" style="color:#ffffff">
-            Una aventura muy especial está por comenzar
+
+        <div
+            class="ey"
+            style="color:#ffffff">
+
+            Una aventura muy especial
+            está por comenzar
+
         </div>
+
+
 
         <img
             class="hero-logo"
             src="images/logo-camila.png"
             alt="Camila Andraus">
 
+
+
         <div class="hero-sub">
+
             ¡Cumplo 5 años!
+
         </div>
 
+
+
         <div class="hero-date">
+
             JUEVES 22 DE OCTUBRE · 5:00 PM
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- CUENTA REGRESIVA -->
+
+<!-- ========================================
+     CUENTA REGRESIVA
+========================================= -->
 
 <section class="countdown">
 
+
     <div class="wrap">
 
+
         <div class="ey">
+
             Falta muy poquito
+
         </div>
 
+
+
         <h2>
+
             Cuenta regresiva
+
         </h2>
+
+
 
         <div class="count">
 
-            <div>
-                <b id="d">000</b>
-                <span>Días</span>
-            </div>
 
             <div>
-                <b id="h">00</b>
-                <span>Horas</span>
+
+                <b id="d">
+                    000
+                </b>
+
+                <span>
+                    Días
+                </span>
+
             </div>
 
-            <div>
-                <b id="m">00</b>
-                <span>Minutos</span>
-            </div>
+
 
             <div>
-                <b id="s">00</b>
-                <span>Segundos</span>
+
+                <b id="h">
+                    00
+                </b>
+
+                <span>
+                    Horas
+                </span>
+
             </div>
+
+
+
+            <div>
+
+                <b id="m">
+                    00
+                </b>
+
+                <span>
+                    Minutos
+                </span>
+
+            </div>
+
+
+
+            <div>
+
+                <b id="s">
+                    00
+                </b>
+
+                <span>
+                    Segundos
+                </span>
+
+            </div>
+
 
         </div>
 
@@ -888,259 +1815,499 @@ textarea:focus{
 </section>
 
 
-<!-- BIENVENIDA -->
+
+<!-- ========================================
+     BIENVENIDA
+========================================= -->
 
 <section class="story">
 
+
     <div class="wrap story-grid">
+
 
         <div class="story-card">
 
+
             <div class="ey">
+
                 Mi cumpleaños
+
             </div>
+
+
 
             <h2>
+
                 ¡Quiero celebrar contigo!
+
             </h2>
 
-            <p>
-                Estoy por cumplir 5 años y quiero vivir una tarde llena de juegos,
-                risas, colores y momentos especiales junto a las personas que quiero.
-            </p>
+
 
             <p>
-                Será una aventura muy divertida y me encantará que seas parte de ella.
+
+                Estoy por cumplir 5 años
+                y quiero vivir una tarde
+                llena de juegos, risas,
+                colores y momentos especiales
+                junto a las personas que quiero.
+
             </p>
+
+
+
+            <p>
+
+                Será una aventura muy divertida
+                y me encantará que seas
+                parte de ella.
+
+            </p>
+
+
 
             <div class="signature">
+
                 Cami ♡
+
             </div>
 
+
         </div>
+
+
 
         <div
             class="story-photo"
             aria-label="Foto de Camila">
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- DETALLES -->
+
+<!-- ========================================
+     DETALLES
+========================================= -->
 
 <section class="details">
 
+
     <div class="wrap">
 
-        <div class="ey" style="text-align:center">
+
+        <div
+            class="ey"
+            style="text-align:center">
+
             Guarda la fecha
+
         </div>
 
-        <h2 style="text-align:center">
+
+
+        <h2
+            style="text-align:center">
+
             Nos vemos en la fiesta
+
         </h2>
+
+
 
         <div class="cards">
 
+
             <div class="card">
 
-                <div class="card-icon">📅</div>
 
-                <b>Fecha</b>
+                <div class="card-icon">
+
+                    📅
+
+                </div>
+
+
+                <b>
+
+                    Fecha
+
+                </b>
+
 
                 <small>
-                    Jueves<br>
+
+                    Jueves
+                    <br>
                     22 de octubre de 2026
+
                 </small>
+
 
             </div>
 
+
+
             <div class="card">
 
-                <div class="card-icon">⏰</div>
 
-                <b>Hora</b>
+                <div class="card-icon">
+
+                    ⏰
+
+                </div>
+
+
+                <b>
+
+                    Hora
+
+                </b>
+
 
                 <small>
+
                     5:00 PM - 7:00 PM
+
                 </small>
 
+
             </div>
+
+
 
             <div class="card">
 
-                <div class="card-icon">🎉</div>
 
-                <b>Lugar</b>
+                <div class="card-icon">
+
+                    🎉
+
+                </div>
+
+
+                <b>
+
+                    Lugar
+
+                </b>
+
 
                 <small>
-                    Kids Park<br>
+
+                    Kids Park
+                    <br>
                     Portoviejo
+
                 </small>
 
+
             </div>
+
 
         </div>
+
 
 
         <div class="map-box">
 
+
             <div class="venue-logo-wrap">
+
 
                 <img
                     class="venue-logo"
                     src="images/kids-park.png"
                     alt="Kids Park">
 
+
             </div>
+
+
 
             <div class="venue-info">
 
-                <div class="ey" style="color:#257b78">
+
+                <div
+                    class="ey"
+                    style="color:#257b78">
+
                     Ubicación
+
                 </div>
 
+
+
                 <h3>
+
                     Kids Park
+
                 </h3>
 
+
+
                 <p>
-                    XG6H+622, Av. Reales Tamarindos y Calle Víctor Vélez,
+
+                    XG6H+622,
+                    Av. Reales Tamarindos
+                    y Calle Víctor Vélez,
                     Portoviejo.
+
                 </p>
+
+
 
                 <a
                     class="btn"
                     href="https://maps.app.goo.gl/KKbxtVorD4aJyePK6"
                     target="_blank"
                     rel="noopener">
+
                     Cómo llegar
+
                 </a>
+
 
             </div>
 
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- GALERÍA -->
+
+<!-- ========================================
+     GALERÍA
+========================================= -->
 
 <section class="gallery">
 
+
     <div class="wrap">
+
 
         <div class="gallery-head">
 
+
             <div class="ey">
+
                 Mis primeros años
+
             </div>
 
+
+
             <h2>
+
                 Creciendo con amor
+
             </h2>
 
+
+
             <p>
-                Un pequeño recorrido por mis primeros cuatro cumpleaños.
+
+                Un pequeño recorrido
+                por mis primeros
+                cuatro cumpleaños.
+
             </p>
 
+
         </div>
+
 
 
         <div class="timeline">
 
-            <div class="year-card">
-                <div class="year-photo y1"></div>
-                <div class="year-label">1 añito</div>
-            </div>
 
             <div class="year-card">
-                <div class="year-photo y2"></div>
-                <div class="year-label">2 añitos</div>
+
+                <div
+                    class="year-photo y1">
+                </div>
+
+                <div class="year-label">
+
+                    1 añito
+
+                </div>
+
             </div>
 
-            <div class="year-card">
-                <div class="year-photo y3"></div>
-                <div class="year-label">3 añitos</div>
-            </div>
+
 
             <div class="year-card">
-                <div class="year-photo y4"></div>
-                <div class="year-label">4 añitos</div>
+
+                <div
+                    class="year-photo y2">
+                </div>
+
+                <div class="year-label">
+
+                    2 añitos
+
+                </div>
+
             </div>
+
+
+
+            <div class="year-card">
+
+                <div
+                    class="year-photo y3">
+                </div>
+
+                <div class="year-label">
+
+                    3 añitos
+
+                </div>
+
+            </div>
+
+
+
+            <div class="year-card">
+
+                <div
+                    class="year-photo y4">
+                </div>
+
+                <div class="year-label">
+
+                    4 añitos
+
+                </div>
+
+            </div>
+
 
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- RSVP -->
+
+<!-- ========================================
+     RSVP
+========================================= -->
 
 <section class="rsvp">
 
+
     <div class="wrap">
+
 
         <div class="rsvp-head">
 
+
             <div class="ey">
+
                 Confirmación
+
             </div>
 
+
+
             <h2>
+
                 ¿Nos acompañarán?
+
             </h2>
 
-            <p>
-                Ayúdanos confirmando tu asistencia.
-            </p>
+
 
             <p>
-                <strong>
-                    Para la sorpresa personalizada hasta el jueves 8 de septiembre
-                </strong>
+
+                Ayúdanos confirmando
+                tu asistencia.
+
             </p>
+
+
+
+            <p>
+
+                <strong>
+
+                    Para la sorpresa personalizada
+                    hasta el jueves 8 de septiembre
+
+                </strong>
+
+            </p>
+
 
         </div>
 
 
+
         <div class="form-box">
+
 
             <form id="rsvpForm">
 
+
                 <label for="confirmacion">
+
                     ¿Podrán acompañarnos?
+
                 </label>
+
+
 
                 <select
                     id="confirmacion"
                     name="confirmacion"
                     required>
 
+
                     <option value="">
+
                         Selecciona una opción
+
                     </option>
+
 
                     <option value="Sí, ahí estaremos">
+
                         Sí, ahí estaremos 🎉
+
                     </option>
 
+
                     <option value="No podremos acompañarlos">
+
                         No podremos acompañarlos
+
                     </option>
+
 
                 </select>
 
 
+
                 <label for="responsable">
-                    Nombre del padre, madre o responsable
+
+                    Nombre del padre,
+                    madre o responsable
+
                 </label>
+
+
 
                 <input
                     id="responsable"
@@ -1150,11 +2317,18 @@ textarea:focus{
                     placeholder="Escribe tu nombre">
 
 
+
                 <div id="attendanceFields">
 
+
                     <label for="ninos">
-                        Nombre del niño o niños invitados
+
+                        Nombre del niño
+                        o niños invitados
+
                     </label>
+
+
 
                     <input
                         id="ninos"
@@ -1163,9 +2337,14 @@ textarea:focus{
                         placeholder="Ej.: Mateo y Sofía">
 
 
+
                     <label for="cantidadAdultos">
+
                         Cantidad de adultos
+
                     </label>
+
+
 
                     <input
                         id="cantidadAdultos"
@@ -1176,9 +2355,15 @@ textarea:focus{
                         value="1">
 
 
+
                     <label for="sorpresa">
-                        Nombre para la sorpresa personalizada
+
+                        Nombre para la
+                        sorpresa personalizada
+
                     </label>
+
+
 
                     <input
                         id="sorpresa"
@@ -1186,80 +2371,127 @@ textarea:focus{
                         type="text"
                         placeholder="Nombre que deseas colocar">
 
+
                 </div>
 
 
+
                 <label for="observaciones">
+
                     Observaciones
+
                 </label>
+
+
 
                 <textarea
                     id="observaciones"
                     name="observaciones"
-                    placeholder="Si deseas contarnos algo, escríbelo aquí"></textarea>
+                    placeholder="Si deseas contarnos algo, escríbelo aquí">
+                </textarea>
+
 
 
                 <button
                     id="rsvpButton"
                     class="submit-btn"
                     type="submit">
+
                     Enviar confirmación
+
                 </button>
+
 
 
                 <div
                     id="thanks"
                     class="status ok"
                     hidden>
-                    ¡Gracias! Hemos recibido tu respuesta.
+
+                    ¡Gracias!
+                    Hemos recibido tu respuesta.
+
                 </div>
+
 
 
                 <div
                     id="rsvpError"
                     class="status error"
                     hidden>
-                    No pudimos enviar la respuesta. Inténtalo nuevamente.
+
+                    No pudimos enviar
+                    la respuesta.
+                    Inténtalo nuevamente.
+
                 </div>
+
 
             </form>
 
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- CIERRE -->
+
+<!-- ========================================
+     CIERRE
+========================================= -->
 
 <section class="final">
 
+
     <div class="wrap">
 
+
         <div class="ey">
+
             22 · 10 · 2026
+
         </div>
+
+
 
         <div class="big">
-            ¡No puedo esperar para celebrar contigo!
+
+            ¡No puedo esperar
+            para celebrar contigo!
+
         </div>
 
+
+
         <div class="name">
+
             Cami ♡
+
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- IAM -->
+
+<!-- ========================================
+     IAM
+========================================= -->
 
 <div class="developer-bar">
 
     Invitación digital por
-    <strong>IAM Marketing + Design</strong>
+
+    <strong>
+
+        IAM Marketing + Design
+
+    </strong>
 
     &nbsp;·&nbsp;
 
@@ -1267,171 +2499,277 @@ textarea:focus{
         href="https://wa.me/593984487647"
         target="_blank"
         rel="noopener">
+
         +593 98 448 7647
+
     </a>
 
 </div>
 
 
+
 <script>
 
-/* ==========================================
-   PERSONALIZACIÓN DEL INVITADO
-========================================== */
+/* ========================================
+   PERSONALIZACIÓN
+========================================= */
 
 const urlParams =
-    new URLSearchParams(window.location.search);
+    new URLSearchParams(
+        window.location.search
+    );
 
-/* ==========================================
-   PERSONALIZACIÓN DEL INVITADO
-========================================== */
 
 const invitado =
-    urlParams.get('invitado');
+    urlParams.get(
+        'invitado'
+    );
+
 
 const tipo =
-    urlParams.get('tipo');
+    urlParams.get(
+        'tipo'
+    );
+
 
 const guestInvitation =
-    document.getElementById('guestInvitation');
+    document.getElementById(
+        'guestInvitation'
+    );
+
 
 const campoNinos =
-    document.getElementById('ninos');
+    document.getElementById(
+        'ninos'
+    );
 
 
-if(invitado && invitado.trim() !== ''){
+
+if(
+    invitado &&
+    invitado.trim() !== ''
+){
 
     const nombreInvitado =
         invitado.trim();
+
 
     let mensajeInvitacion =
         '¡Estás invitado!';
 
 
+
     /* NIÑO */
+
     if(tipo === 'm'){
+
         mensajeInvitacion =
             '¡Estás invitado!';
+
     }
+
+
 
     /* NIÑA */
+
     else if(tipo === 'f'){
+
         mensajeInvitacion =
             '¡Estás invitada!';
+
     }
+
+
 
     /* DOS O MÁS NIÑAS */
+
     else if(tipo === 'ff'){
+
         mensajeInvitacion =
             '¡Están invitadas!';
+
     }
 
-    /* GRUPO MIXTO O VARIOS */
+
+
+    /* VARIOS / GRUPO MIXTO */
+
     else if(tipo === 'mf'){
+
         mensajeInvitacion =
             '¡Están invitados!';
+
     }
 
 
-    guestInvitation.innerHTML = '';
+
+    guestInvitation.innerHTML =
+        '';
+
 
 
     const guestName =
-        document.createElement('span');
+        document.createElement(
+            'span'
+        );
+
 
     guestName.className =
         'guest-name';
+
 
     guestName.textContent =
         nombreInvitado;
 
 
+
     const guestMessage =
-        document.createElement('span');
+        document.createElement(
+            'span'
+        );
+
 
     guestMessage.className =
         'guest-message';
 
+
     guestMessage.textContent =
         mensajeInvitacion;
+
 
 
     guestInvitation.appendChild(
         guestName
     );
 
+
     guestInvitation.appendChild(
         guestMessage
     );
 
 
-    /* PRECARGAR NOMBRE EN RSVP */
+
+    /* PRECARGAR EN RSVP */
 
     if(campoNinos){
 
         campoNinos.value =
             nombreInvitado;
+
     }
+
 }
 
 
 
-/* ===============================
-   COUNTDOWN
-================================ */
+/* ========================================
+   CUENTA REGRESIVA
+========================================= */
 
 const targetDate =
+
     new Date(
         '2026-10-22T17:00:00-05:00'
     ).getTime();
 
 
+
 function tick(){
 
+
     const distance =
+
         Math.max(
             0,
             targetDate - Date.now()
         );
 
 
-    document.getElementById('d').textContent =
+
+    document.getElementById(
+        'd'
+    ).textContent =
+
         String(
+
             Math.floor(
-                distance / 86400000
+                distance /
+                86400000
             )
-        ).padStart(3,'0');
+
+        ).padStart(
+            3,
+            '0'
+        );
 
 
-    document.getElementById('h').textContent =
+
+    document.getElementById(
+        'h'
+    ).textContent =
+
         String(
+
             Math.floor(
-                (distance % 86400000) /
+
+                (distance % 86400000)
+                /
                 3600000
+
             )
-        ).padStart(2,'0');
+
+        ).padStart(
+            2,
+            '0'
+        );
 
 
-    document.getElementById('m').textContent =
+
+    document.getElementById(
+        'm'
+    ).textContent =
+
         String(
+
             Math.floor(
-                (distance % 3600000) /
+
+                (distance % 3600000)
+                /
                 60000
+
             )
-        ).padStart(2,'0');
+
+        ).padStart(
+            2,
+            '0'
+        );
 
 
-    document.getElementById('s').textContent =
+
+    document.getElementById(
+        's'
+    ).textContent =
+
         String(
+
             Math.floor(
-                (distance % 60000) /
+
+                (distance % 60000)
+                /
                 1000
+
             )
-        ).padStart(2,'0');
+
+        ).padStart(
+            2,
+            '0'
+        );
+
 }
 
 
 tick();
+
 
 setInterval(
     tick,
@@ -1440,63 +2778,99 @@ setInterval(
 
 
 
-/* ===============================
-   MUSIC + OPEN INVITATION
-================================ */
+/* ========================================
+   MÚSICA + ABRIR INVITACIÓN
+========================================= */
 
 const music =
-    document.getElementById('bgMusic');
+    document.getElementById(
+        'bgMusic'
+    );
+
 
 const musicButton =
-    document.getElementById('musicButton');
+    document.getElementById(
+        'musicButton'
+    );
+
 
 const welcomeScreen =
-    document.getElementById('welcomeScreen');
+    document.getElementById(
+        'welcomeScreen'
+    );
+
 
 const openInvitation =
-    document.getElementById('openInvitation');
+    document.getElementById(
+        'openInvitation'
+    );
 
 
-music.volume = 0.45;
+
+music.volume =
+    0.45;
+
 
 
 function showInvitation(){
+
 
     document.body.classList.add(
         'invitation-open'
     );
 
+
     document.body.classList.remove(
         'no-scroll'
     );
+
 
     welcomeScreen.classList.add(
         'hidden'
     );
 
+
     setTimeout(
+
         () => {
+
             welcomeScreen.style.display =
                 'none';
+
         },
+
         800
+
     );
 
-    window.scrollTo(0,0);
+
+    window.scrollTo(
+        0,
+        0
+    );
+
 }
 
 
+
 openInvitation.addEventListener(
+
     'click',
+
     (event) => {
 
+
         event.preventDefault();
+
         event.stopPropagation();
+
 
         showInvitation();
 
+
         const playAttempt =
             music.play();
+
 
 
         if(
@@ -1505,51 +2879,71 @@ openInvitation.addEventListener(
             'function'
         ){
 
+
             playAttempt
+
                 .then(() => {
+
 
                     musicButton.textContent =
                         '♫';
 
+
                     musicButton.classList.remove(
                         'paused'
                     );
+
 
                     musicButton.setAttribute(
                         'aria-label',
                         'Pausar música'
                     );
 
+
                 })
 
+
                 .catch(() => {
+
 
                     musicButton.textContent =
                         '▶';
 
+
                     musicButton.classList.add(
                         'paused'
                     );
+
 
                     musicButton.setAttribute(
                         'aria-label',
                         'Reproducir música'
                     );
 
+
                 });
+
         }
+
     }
+
 );
 
 
+
 musicButton.addEventListener(
+
     'click',
+
     () => {
+
 
         if(music.paused){
 
+
             const playAttempt =
                 music.play();
+
 
 
             if(
@@ -1558,128 +2952,174 @@ musicButton.addEventListener(
                 'function'
             ){
 
+
                 playAttempt
+
                     .then(() => {
+
 
                         musicButton.textContent =
                             '♫';
 
+
                         musicButton.classList.remove(
                             'paused'
                         );
+
 
                         musicButton.setAttribute(
                             'aria-label',
                             'Pausar música'
                         );
 
+
                     })
 
+
                     .catch(() => {
+
 
                         musicButton.textContent =
                             '▶';
 
+
                         musicButton.classList.add(
                             'paused'
                         );
+
 
                         musicButton.setAttribute(
                             'aria-label',
                             'Reproducir música'
                         );
 
+
                     });
+
             }
+
 
         }else{
 
+
             music.pause();
+
 
             musicButton.textContent =
                 '▶';
+
 
             musicButton.classList.add(
                 'paused'
             );
 
+
             musicButton.setAttribute(
                 'aria-label',
                 'Reproducir música'
             );
+
         }
+
     }
+
 );
 
 
 
-/* ===============================
-   RSVP DYNAMIC FIELDS
-================================ */
+/* ========================================
+   CAMPOS DINÁMICOS RSVP
+========================================= */
 
 const confirmacion =
+
     document.getElementById(
         'confirmacion'
     );
 
+
 const attendanceFields =
+
     document.getElementById(
         'attendanceFields'
     );
 
 
+
 confirmacion.addEventListener(
+
     'change',
+
     () => {
 
+
         const noAsiste =
+
             confirmacion.value ===
             'No podremos acompañarlos';
 
 
-        attendanceFields.classList.toggle(
-            'hidden-fields',
-            noAsiste
-        );
+
+        attendanceFields
+            .classList
+            .toggle(
+
+                'hidden-fields',
+
+                noAsiste
+
+            );
+
 
 
         document.getElementById(
             'ninos'
-        ).required = !noAsiste;
+        ).required =
+            !noAsiste;
+
 
 
         document.getElementById(
             'cantidadAdultos'
-        ).required = !noAsiste;
+        ).required =
+            !noAsiste;
+
 
 
         document.getElementById(
             'sorpresa'
-        ).required = !noAsiste;
+        ).required =
+            !noAsiste;
+
 
 
         if(noAsiste){
 
+
             document.getElementById(
                 'ninos'
-            ).value = '';
+            ).value =
+                '';
 
 
             document.getElementById(
                 'cantidadAdultos'
-            ).value = '0';
+            ).value =
+                '0';
 
 
             document.getElementById(
                 'sorpresa'
-            ).value = '';
+            ).value =
+                '';
 
-        }else if(confirmacion.value){
 
-            /*
-               Si vuelve a seleccionar que sí,
-               restauramos el invitado personalizado.
-            */
+        }else if(
+            confirmacion.value
+        ){
+
+
+            /* RESTAURAR INVITADO */
 
             if(
                 invitado &&
@@ -1688,188 +3128,284 @@ confirmacion.addEventListener(
                 ).value === ''
             ){
 
+
                 document.getElementById(
                     'ninos'
                 ).value =
                     invitado.trim();
+
             }
+
 
 
             if(
-                document.getElementById(
-                    'cantidadAdultos'
-                ).value === '0'
-            ){
 
                 document.getElementById(
                     'cantidadAdultos'
-                ).value = '1';
+                ).value ===
+                '0'
+
+            ){
+
+
+                document.getElementById(
+                    'cantidadAdultos'
+                ).value =
+                    '1';
+
             }
+
         }
+
     }
+
 );
 
 
 
-/* ===============================
-   RSVP SUBMISSION
-================================ */
+/* ========================================
+   ENVÍO RSVP
+========================================= */
 
 const RSVP_ENDPOINT =
+
 'https://script.google.com/macros/s/AKfycbyWubTfa-dCHpl0VjfrBep8Vjt8AG3hGCSD74m5eu1tuNNVRB35RbzRhmWMluACrgp2QA/exec';
 
 
+
 const rsvpForm =
+
     document.getElementById(
         'rsvpForm'
     );
 
+
 const rsvpButton =
+
     document.getElementById(
         'rsvpButton'
     );
 
+
 const thanks =
+
     document.getElementById(
         'thanks'
     );
 
+
 const rsvpError =
+
     document.getElementById(
         'rsvpError'
     );
 
 
+
 rsvpForm.addEventListener(
+
     'submit',
+
     async (event) => {
+
 
         event.preventDefault();
 
-        thanks.hidden = true;
-        rsvpError.hidden = true;
 
-        rsvpButton.disabled = true;
+        thanks.hidden =
+            true;
+
+
+        rsvpError.hidden =
+            true;
+
+
+        rsvpButton.disabled =
+            true;
+
 
         rsvpButton.textContent =
             'Enviando...';
+
 
 
         const formData =
             new URLSearchParams();
 
 
+
         formData.append(
+
             'confirmacion',
+
             document.getElementById(
                 'confirmacion'
             ).value
+
         );
 
 
+
         formData.append(
+
             'responsable',
+
             document.getElementById(
                 'responsable'
             ).value.trim()
+
         );
 
 
+
         formData.append(
+
             'ninos',
+
             document.getElementById(
                 'ninos'
             ).value.trim()
+
         );
 
 
+
         formData.append(
+
             'cantidadAdultos',
+
             document.getElementById(
                 'cantidadAdultos'
             ).value
+
         );
 
 
+
         formData.append(
+
             'sorpresa',
+
             document.getElementById(
                 'sorpresa'
             ).value.trim()
+
         );
+
 
 
         formData.append(
+
             'observaciones',
+
             document.getElementById(
                 'observaciones'
             ).value.trim()
+
         );
+
 
 
         try{
 
+
             await fetch(
+
                 RSVP_ENDPOINT,
+
                 {
-                    method:'POST',
-                    mode:'no-cors',
-                    body:formData
+
+                    method:
+                        'POST',
+
+                    mode:
+                        'no-cors',
+
+                    body:
+                        formData
+
                 }
+
             );
 
 
-            thanks.hidden = false;
+
+            thanks.hidden =
+                false;
+
+
 
             rsvpForm.reset();
 
-            attendanceFields.classList.remove(
-                'hidden-fields'
-            );
+
+
+            attendanceFields
+                .classList
+                .remove(
+                    'hidden-fields'
+                );
+
 
 
             document.getElementById(
                 'cantidadAdultos'
-            ).value = '1';
+            ).value =
+                '1';
 
 
-            /*
-               Después del reset mantenemos
-               el nombre del invitado personalizado.
-            */
+
+            /* MANTENER INVITADO */
 
             if(invitado){
+
 
                 document.getElementById(
                     'ninos'
                 ).value =
                     invitado.trim();
+
             }
 
 
+
             thanks.scrollIntoView({
-                behavior:'smooth',
-                block:'center'
+
+                behavior:
+                    'smooth',
+
+                block:
+                    'center'
+
             });
+
 
 
         }catch(error){
 
+
             rsvpError.hidden =
                 false;
 
+
         }finally{
+
 
             rsvpButton.disabled =
                 false;
 
+
             rsvpButton.textContent =
                 'Enviar confirmación';
+
         }
+
     }
+
 );
 
 </script>
 
+
 </body>
+
 </html>
